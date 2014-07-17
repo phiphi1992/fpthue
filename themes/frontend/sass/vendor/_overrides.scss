@@ -1,0 +1,62 @@
+// SUPER SLIDER
+
+// EASY DROPDOWN SELECTBOX
+
+// MAGNIFIC POPUP
+
+.image-source-link {
+    color: #98C3D1;
+}
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+    opacity: 0.001;
+    -webkit-backface-visibility: hidden;
+    /* ideally, transition speed should match zoom duration */
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+.mfp-auto-cursor .mfp-content {
+    border: 10px solid #fff;
+    background-color: #FFF;
+    @include border-radius(5px);
+}
+
+img.mfp-img {
+    padding: 0px 0 30px;
+}
+
+.mfp-figure:after {
+    @include box-shadow(none);
+}
+
+.mfp-title {
+    font-size: 22px;
+    color: #333333;
+    padding: 10px 0;
+}
+
+.mfp-counter {
+    display: none;
+}
+
+.mfp-image-holder .mfp-close, .mfp-iframe-holder .mfp-close {
+    top: -48px;
+    right: -17px;
+}

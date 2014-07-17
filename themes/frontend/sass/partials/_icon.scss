@@ -1,0 +1,40 @@
+$icon-layout: smart;
+@import "icon/*.png";
+.icon-ib {
+    @include inline-block;
+    margin-right: 10px;
+    margin-top: -7px;
+}
+
+.icon-fl {
+    float: left;
+    margin-right: 10px;
+}
+
+@each $icon-name in logo, menu-home-hover, menu-introduce-hover, menu-parents-hover,
+decoration-01, decoration-02, decoration-03, icon-notice, decoration-04, icon-intro,
+decoration-05, icon-nutrition, icon-heart, icon-leaf, footer-decoration-01,
+footer-decoration-02, decoration-06, decoration-07, decoration-08, page-next, page-prev,
+menu-contact-hover, menu-library-hover, decoration-09, decoration-10, menu-news-hover {
+    .#{$icon-name} {
+        @include icon-sprite($icon-name);
+        width: icon-sprite-width($icon-name);
+        height: icon-sprite-height($icon-name);
+    }
+}
+
+.icon-notice {
+    margin-left: -(icon-sprite-width(icon-notice) + 10);
+}
+.icon-intro {
+    margin-left: -(icon-sprite-width(icon-intro) + 10);
+}
+.icon-nutrition {
+    margin-left: -(icon-sprite-width(icon-nutrition) + 10);
+}
+.icon-heart {
+    margin-left: -(icon-sprite-width(icon-heart) + 10);
+}
+.icon-leaf {
+    margin-left: -(icon-sprite-width(icon-leaf) + 10);
+}
