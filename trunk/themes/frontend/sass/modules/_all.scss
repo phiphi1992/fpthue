@@ -1,0 +1,103 @@
+// VARIABLES
+
+// WIDTH, HEIGHT
+$width-container: 1170px;
+$width-primary-container: 651px;
+$width-sidebar-container: 332px;
+
+// COLOR
+$bg-color: #f6f6f6;
+$body-color: #555555;
+$main-color: #6bb809;
+$sub-color: #fcbd16;
+$border-color: #e0e0e0;
+$border-darker-color: #d0d0d0;
+$home-color: #63991c;
+$introduce-color: #009cc8;
+$parents-color: #cb362a;
+$news-color: #e69515;
+$library-color: #b93ee2;
+$contact-color: #00bfb8;
+
+// FONT
+$font: 'Patrick Hand', cursive;
+
+// MIXIN
+@mixin placeholder {
+    &::-moz-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin placeholder-style {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-family: Arial;
+}
+
+@mixin color-transparent($color, $background) {
+    $percent: alpha($color) * 100%;
+    $opaque: opacify($color, 1);
+    $solid-color: mix($opaque, $background, $percent);
+    color: $solid-color;
+    color: $color;
+}
+
+@mixin bg-color-transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    background-color: transparent;
+    zoom: 1;
+    background-color: $rgba;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}
+
+@mixin respond-to($media) {
+    @if $media == 1280 {
+        @media (max-width: 1280px) {
+            @content;
+        }
+    }
+    @if $media == 1170 {
+        @media (max-width: 1170px) {
+            @content;
+        }
+    }
+    @if $media == 1024 {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+    @if $media == 970 {
+        @media (max-width: 970px) {
+            @content;
+        }
+    }
+    @if $media == 800 {
+        @media (max-width: 800px) {
+            @content;
+        }
+    }
+    @else if $media == 600 {
+        @media (max-width: 600px) {
+            @content;
+        }
+    }
+    @else if $media == 480 {
+        @media (max-width: 480px) {
+            @content;
+        }
+    }
+    @else if $media == 320 {
+        @media (max-width: 320px) {
+            @content;
+        }
+    }
+}

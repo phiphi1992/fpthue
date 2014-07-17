@@ -1,0 +1,33 @@
+// *********************************************
+//
+// + Project name: Mầm non Bảo Ngọc
+// + Date start: 03/06/2014
+// + Date finish: --/--/----
+// + Author: TINHH
+//
+// *********************************************/
+
+@charset "UTF-8";
+// COMPASS & NORMALIZE
+@import "compass";
+@import "compass/layout";
+@import "normalize";
+
+// MODULES (Variable, Mixin, Function)
+@import "modules/all";
+
+// PARTIALS (Reset, Helper class, Global style, Icon sprite, Site style)
+@import "partials/reset";
+@import "partials/helper";
+@import "partials/global";
+@import "partials/icon";
+@import "partials/site";
+
+// VENDOR (jQuery plugin & Customize)
+@import "vendor/camera";
+@import "vendor/magnific-popup";
+@import "vendor/mmenu";
+@import "vendor/overrides";
+
+// SHAME
+@import "partials/shame"

@@ -1,0 +1,54 @@
+// @include sticky-footer(302px, "#wrapper", "#push", "#footer-container");
+
+body {
+    background: image-url("bg.jpg") top center;
+    color: $body-color;
+    font: 400 normal 100% $font;
+    line-height: 1.3em;
+    font-size: 15px;
+    -ms-overflow-y: visible !important;
+        overflow-y: visible !important;
+}
+
+.container {
+    width: $width-container;
+    margin: auto;
+    @include respond-to(1170) {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.btn {
+    @include inline-block;
+    position: relative;
+    padding: 3px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    border: none;
+    background-color: $home-color;
+    span {
+        text-transform: uppercase;
+        display: block;
+        padding: 8px 25px;
+        border: 1px dashed rgba(white, 0.5);
+    }
+    i {
+        position: absolute;
+        top: -5px;
+        left: -12px;
+        @include opacity(0);
+        @extend %transition;
+        -webkit-animation: spin 2s infinite linear;
+           -moz-animation: spin 2s infinite linear;
+            -ms-animation: spin 2s infinite linear;
+             -o-animation: spin 2s infinite linear;
+                animation: spin 2s infinite linear;
+    }
+    &:hover {
+        i {
+            @include opacity(1);
+        }
+    }
+}
