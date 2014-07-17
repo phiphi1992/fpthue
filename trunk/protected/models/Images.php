@@ -13,6 +13,11 @@
  */
 class Images extends PIActiveRecord
 {
+	public static $IMAGE_BANNER = 1; # Hình cho banner
+	public static $IMAGE_PHOTO = 2; # Hình ảnh cho thư viện hình ảnh
+	public static $IMAGE_PATNER = 3; # Hình ảnh cho đối tác
+	
+	public $image;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -29,8 +34,10 @@ class Images extends PIActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('image, created', 'required'),
-			array(' created', 'numerical', 'integerOnly'=>true),
+			array('name, link, created', 'required', 'message'=>'{attribute} Không được trống.'),
+			array('created', 'numerical', 'integerOnly'=>true),
+			array('image', 'file','types'=>'jpg, gif, png', 'maxSize'=>1024*1024*5, 'allowEmpty'=>false, 'on'=>'insert'),
+			array('image', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>1024*1024*5, 'allowEmpty'=>true, 'on'=>'update'),
 			//array('name', 'length', 'max'=>255),
 			//array('image, description', 'length', 'max'=>500),
 			//array('image', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>'300000'),
@@ -59,11 +66,11 @@ class Images extends PIActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'image' => 'Image',
-			'description' => 'Description',
-			'album_id' => 'Album',
-			'created' => 'Created',
+			'name' => 'Tiêu đề',
+			'image' => 'Hình ảnh',
+			'link' => 'Liên kết',
+			'album_id' => 'Loại hình',
+			'created' => 'Ngày tạo',
 		);
 	}
 
@@ -88,7 +95,7 @@ class Images extends PIActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('image',$this->image,true);
-		$criteria->compare('description',$this->description,true);
+		$criteria->compare('link',$this->link,true);
 		$criteria->compare('album_id',$this->album_id);
 		$criteria->compare('created',$this->created);
 
