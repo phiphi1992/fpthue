@@ -69,29 +69,29 @@
 		
 		<ul class="submenu">
 			<li>
-				<a href="<?php echo PIUrl::createUrl('/admin/albums/create');?>">
+				<a href="<?php echo PIUrl::createUrl('/admin/images/patner');?>">
 					<i class="icon-double-angle-right"></i>
-					Thêm albums
+					Quản lý đối tác
 				</a>
 				
 			</li>
 			<li>
-				<a href="<?php echo PIUrl::createUrl('/admin/albums/');?>">
+				<a href="<?php echo PIUrl::createUrl('/admin/images/index');?>">
 					<i class="icon-double-angle-right"></i>
-					Danh sách Albums
+					Quản lý hình ảnh
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo PIUrl::createUrl('/admin/images/create/');?>" class="dropdown-toggle">
+				<a href="<?php echo PIUrl::createUrl('/admin/images/banner/');?>" class="dropdown-toggle">
 					<i class="icon-double-angle-right"></i>
-					Thêm hình ảnh
+					Banner phải
 				</a>
 			</li>
 			
 			<li>
 				<a href="<?php echo PIUrl::createUrl('/admin/slides/');?>">
 					<i class="icon-double-angle-right"></i>
-					Thêm slideshow
+					Hình ảnh trình diễn
 				</a>
 				
 			</li>
@@ -104,12 +104,7 @@
 			<span class="menu-text"> Videos </span>
 		</a>
 	</li>
-	<li <?php if(curCA('controller') == 'patners' && curCA('action') == 'index') echo 'class="active"'?>>
-		<a href="<?php echo PIUrl::createUrl('/admin/patners');?>">
-			<i class="icon-calendar"></i>
-			<span class="menu-text"> Đối tác </span>
-		</a>
-	</li>
+	
 	<li <?php if(curCA('controller') == 'comments' && curCA('action') == 'index') echo 'class="active"'?>>
 		<a href="<?php echo PIUrl::createUrl('/admin/comments');?>">
 			<i class="icon-edit"></i>

@@ -34,9 +34,7 @@
 							<i class="icon-ok bigger-110"></i>
 							<?php echo translate('Lưu');?>
 							</button>
-							<a href="#" data-action="close">
-								<i class="icon-remove"></i>
-							</a>
+							
 						</span>
 					</div>
 

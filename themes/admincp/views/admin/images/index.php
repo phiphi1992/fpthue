@@ -36,7 +36,7 @@
 							</a>
 
 
-							<a href="<?php echo PIUrl::createUrl('/admin/images/delete/',array('id'=>$image->id));?>" class="delete">
+							<a href="<?php echo PIUrl::createUrl('/admin/images/delImage/',array('id'=>$image->id,'typeId'=>Images::$IMAGE_PHOTO));?>" class="delete">
 								<i class="icon-remove red"></i>
 							</a>
 						</div>

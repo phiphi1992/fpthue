@@ -28,7 +28,9 @@ class ImagesController extends Controller
 	{
 		$model = new Images;
 		$criteria=new CDbCriteria();
+		$criteria->condition = 'album_id=:album_id';
 		$criteria->order = 'id DESC';
+		$criteria->params = array(':album_id'=>Images::$IMAGE_PHOTO);
 		$count=Images::model()->count($criteria);
 		$pages=new CPagination($count);
 		
@@ -41,6 +43,119 @@ class ImagesController extends Controller
 		$this->render('index',compact('model','pages','dataAlbums','listImage'));
 	}
 	
+	public function actionBanner(){
+		if(isset($_POST['selected']) && !empty($_POST['selected'])){
+			foreach($_POST['selected'] as $k=>$v){
+					$model = Images::model()->findByPk($v);
+					$name = $model->attributes['image'];
+					if($model->delete() && $name != '' && file_exists(Yii::app()->basePath.'/../upload/images/'.$name))
+						unlink(Yii::app()->basePath.'/../upload/images/'.$name);
+			}
+			Yii::app()->user->setFlash('success', translate('Xóa thành công.'));
+		}
+		$model = Images::model()->findAllByAttributes(array('album_id'=>Images::$IMAGE_BANNER));
+		$this->render('index_banner',array('model'=>$model));
+	}
+	public function actionAddBanner(){
+	
+		$model = new Images;
+		$model->album_id = Images::$IMAGE_BANNER;
+		if(!empty($_POST['Images'])){
+			$model->attributes = $_POST['Images'];
+			$objImage=CUploadedFile::getInstance($model,'image');
+			$imageName = $this->getFileName($objImage);
+			$model->image = $imageName;
+			$model->created = time();
+			if($model->validate() && $model->save()){
+				$objImage->saveAs(Yii::getPathOfAlias('webroot').'/upload/images/'.$imageName);
+				Yii::app()->user->setFlash('success', translate('Thêm thành công.'));
+				$this->redirect(PIUrl::createUrl('/admin/images/banner'));
+			}
+		}
+		$this->render('form_image',array('model'=>$model,'title'=>'Thêm mới banner'));
+	}
+	public function actionEditBanner($id){
+		$model = Images::model()->findByPk($id);
+		$model->album_id = Images::$IMAGE_BANNER;
+		if(!empty($_POST['Images'])){
+			$model->attributes = $_POST['Images'];
+			$objImage=CUploadedFile::getInstance($model,'image');
+			$imageName = $this->getFileName($objImage);
+			if(!empty($objImage))
+				$model->image = $imageName;
+			if($model->validate() && $model->save()){
+				if(!empty($objImage))
+					$objImage->saveAs(Yii::getPathOfAlias('webroot').'/upload/images/'.$imageName);
+				Yii::app()->user->setFlash('success', translate('Thêm thành công.'));
+				$this->redirect(PIUrl::createUrl('/admin/images/banner'));
+			}
+		}
+		$this->render('form_image',array('model'=>$model,'title'=>'Cập nhật banner'));
+	}
+	
+	
+	public function actionPatner(){
+		if(isset($_POST['selected']) && !empty($_POST['selected'])){
+			foreach($_POST['selected'] as $k=>$v){
+					$model = Images::model()->findByPk($v);
+					$name = $model->attributes['image'];
+					if($model->delete() && $name != '' && file_exists(Yii::app()->basePath.'/../upload/images/'.$name))
+						unlink(Yii::app()->basePath.'/../upload/images/'.$name);
+			}
+			Yii::app()->user->setFlash('success', translate('Xóa thành công.'));
+		}
+		$model = Images::model()->findAllByAttributes(array('album_id'=>Images::$IMAGE_PATNER));
+		$this->render('index_pather',array('model'=>$model));
+	}
+	public function actionAddPatner(){
+		$model = new Images;
+		$model->album_id = Images::$IMAGE_PATNER;
+		if(!empty($_POST['Images'])){
+			$model->attributes = $_POST['Images'];
+			$objImage=CUploadedFile::getInstance($model,'image');
+			$imageName = $this->getFileName($objImage);
+			$model->image = $imageName;
+			$model->created = time();
+			if($model->validate() && $model->save()){
+				$objImage->saveAs(Yii::getPathOfAlias('webroot').'/upload/images/'.$imageName);
+				Yii::app()->user->setFlash('success', translate('Thêm thành công.'));
+				$this->redirect(PIUrl::createUrl('/admin/images/patner'));
+			}
+		}
+		$this->render('form_image',array('model'=>$model,'title'=>'Thêm mới đối tác'));
+	}
+	public function actionEditPatner($id){
+		$model = Images::model()->findByPk($id);
+		$model->album_id = Images::$IMAGE_PATNER;
+		if(!empty($_POST['Images'])){
+			$model->attributes = $_POST['Images'];
+			$objImage=CUploadedFile::getInstance($model,'image');
+			$imageName = $this->getFileName($objImage);
+			if(!empty($objImage))
+				$model->image = $imageName;
+			if($model->validate() && $model->save()){
+				if(!empty($objImage))
+					$objImage->saveAs(Yii::getPathOfAlias('webroot').'/upload/images/'.$imageName);
+				Yii::app()->user->setFlash('success', translate('Thêm thành công.'));
+				$this->redirect(PIUrl::createUrl('/admin/images/patner'));
+			}
+		}
+		$this->render('form_image',array('model'=>$model,'title'=>'Cập nhật đối tác'));
+	}
+	
+	
+	private function getFileName($objFile){
+		if(empty($objFile))
+			return '';
+		$imageType = explode('.',$objFile->name);
+		if(count($imageType) > 1)
+			$imageType = $imageType[count($imageType)-1];
+		else
+			$imageType = 'jpg';
+		$imageName = md5(uniqid()).'.'.$imageType;
+		return $imageName;
+	}
+	
 	public function loadModel($id)
 	{
 		$model=Images::model()->findByPk($id);
@@ -48,31 +163,21 @@ class ImagesController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-	public function actionCreate()
-	{
-		Yii::import("xupload.models.XUploadForm");
-        $model = new XUploadForm;
-		$dataAlbums = Albums::model()->getAlbums();
-		$this->render('create',compact('model','dataAlbums'));
-	}
-	public function actionDeleteImage($id)
+	
+	public function actionDelImage($id,$typeId)
 	{
 		$model = Images::model()->findByPk($id);
 		$name = $model->attributes['image'];
-		$album = $model->attributes['album_id'];
-		$this->loadModel($id)->delete();
-		unlink(Yii::app()->basePath.'/../upload/images/'.$name);
+		if($this->loadModel($id)->delete() && $name != '' && file_exists(Yii::app()->basePath.'/../upload/images/'.$name))
+			unlink(Yii::app()->basePath.'/../upload/images/'.$name);
 		Yii::app()->user->setFlash('success', translate('Xóa thành công.'));
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		$this->redirect(PIUrl::createUrl('/admin/albums/view/',array('id'=>$album)));
-	}
-	public function actionDelete($id)
-	{
-		$model = Images::model()->findByPk($id);
-		$name = $model->attributes['image'];
-		$this->loadModel($id)->delete();
-		unlink(Yii::app()->basePath.'/../upload/images/'.$name);
-		Yii::app()->user->setFlash('success', translate('Xóa thành công.'));
+		if($typeId == Images::$IMAGE_PATNER)
+			$this->redirect(PIUrl::createUrl('/admin/images/patner'));
+		elseif($typeId == Images::$IMAGE_BANNER)
+			$this->redirect(PIUrl::createUrl('/admin/images/banner'));
+		else
+			$this->redirect(PIUrl::createUrl('/admin/images/index'));
+			
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
