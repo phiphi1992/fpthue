@@ -1,20 +1,7 @@
 <!--=== Slider ===-->
-<div class="slider-inner">
-	<div id="da-slider" class="da-slider">
-		<div class="da-slide">
-            <!-- <h2>
-				<i>Dịch Vụ Cáp Quang Siêu Nhanh</i> <br /><br /> 
-				<i>O1699 333 777</i> - <i>O1699 333 777</i>
-			</h2>			
-            <div class="da-img"><img src="assets/img/common/trangtien.jpg" alt="" /></div> -->
-        </div>
-
-        <nav class="da-arrows">
-            <span class="da-arrows-prev"></span>
-            <span class="da-arrows-next"></span>
-        </nav>
-    </div><!--/da-slider-->
-</div><!--/slider-->
+<?php $this->renderPartial('//common/banner',array(
+	'arrBanner'=>$arrBanner
+));?>
 <!--=== End Slider ===-->
 <!-- Purchase Block -->
 <div class="row-fluid purchase margin-bottom-10">
