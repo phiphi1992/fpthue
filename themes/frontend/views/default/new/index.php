@@ -26,13 +26,13 @@
 	<div class="span9" style="margin-left: 0px;">
 		<?php if(!empty($model)) {?>
 		<div class="news">
-			<div class="headline"><a href=""><h3><?php echo $category['name'];?></h3></a></div>
+			<div class="headline"><a href="<?php echo $category['alias']?>"><h3><?php echo $category['name'];?></h3></a></div>
 			<div class="row-fluid margin-bottom-10">
 				<?php foreach ($model as $new) {?>
 				<div class="span6 item" style="margin-left:5px;">
-					<img class="pull-left lft-img-margin" width="150" src="<?php echo getImage($new['image'],150,90,0)?>" alt="" />
-					<strong><a href="/default/internet/detail/id/<?php echo $new['id'];?>"><?php echo $new['name'];?></a></strong>
-					<p><i class="icon-time"> <?php echo date('d/m/Y',$new['created']);?></i>
+					<img class="pull-left lft-img-margin" src="<?php echo getImage($new['image'],150,90,0)?>" alt="" />
+					<h5><strong><a href="<?php echo $category['alias']?>/<?php echo $new['alias'];?>"><?php echo $new['name'];?></a></strong></h5>
+					<i class="icon-time"></i> <?php echo date('d/m/Y',$new['created']);?>
 					<p><i><?php echo word_limiter($new['description'],20)?></i></p>
 				</div>
 				<?php }?>
@@ -41,16 +41,16 @@
 		<div class="pagination pagination-centered">
 		<?php 
 		$this->widget('CLinkPager', array(
-		'currentPage'=>$pages->getCurrentPage(),
-		'itemCount'=>$count,
-		'pageSize'=>$page_size,
-		'maxButtonCount'=>5,
-		'prevPageLabel' => '<i class="icon-double-angle-left"></i>',
-        'nextPageLabel' => '<i class="icon-double-angle-right"></i>',
-        'firstPageLabel' => 'Trước',
-        'lastPageLabel' => 'Tiếp',
-		'header'=>'',
-		'htmlOptions'=>array('class'=>''),
+			'currentPage'=>$pages->getCurrentPage(),
+			'itemCount'=>$count,
+			'pageSize'=>$page_size,
+			'maxButtonCount'=>5,
+			'prevPageLabel' => '<i class="icon-double-angle-left"></i>',
+			'nextPageLabel' => '<i class="icon-double-angle-right"></i>',
+			'firstPageLabel' => 'Trước',
+			'lastPageLabel' => 'Tiếp',
+			'header'=>'',
+			'htmlOptions'=>array('class'=>''),
 		));
 		?>
 		</div>
@@ -64,15 +64,15 @@
 	));?>
 </div>
 <script type="text/javascript">
-$( window ).load(function() {
+$(document).ready(function() {
 	/*Set height internet item*/
 	var _heightMax = 0;
-	$(".news .item").each(function(){
+	$(".news .span6").each(function(){
 		var height = $(this).height();
 		if(height > _heightMax){
 			_heightMax = height;
 		}
 	});
-	$(".news .item").css('height',_heightMax+'px');
+	
 });
 </script>

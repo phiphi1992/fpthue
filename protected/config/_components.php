@@ -15,7 +15,7 @@ return array(
 		'rules'=>require(dirname(__FILE__) . '/_routers.php'),
 	),
 	'db'=>array(
-		'connectionString' => 'mysql:host=localhost;dbname=fpthue',
+		'connectionString' => 'mysql:host=localhost;dbname=viettelhue',
 		'emulatePrepare' => true,
 		'username' => 'root',
 		'password' => '',

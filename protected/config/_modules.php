@@ -67,7 +67,8 @@ return array(
 		'install'=>false,  // Whether to enable installer. 
 		'debug'=>false, 
 	),
-	'admin'
+	'admin',
+	'default'
 );
 /* End file _modules.php */
 /* Location: aplication.protected.config._modules.php */
