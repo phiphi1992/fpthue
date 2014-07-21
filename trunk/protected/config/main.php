@@ -26,10 +26,10 @@ return array(
 		'datetime'=>'d/m/Y H:s:i A',
 		'date'=>'d/m/Y',
 		'config'=>array(
-			'description'=>'Mẫu giáo Bảo Ngọc',
+			'description'=>'Viettel Huế',
 			'author'=>'Kovo.vn',
-			'keyword'=>'Phòng công chứng số 3 - TP Đà Nẵng',
-			'icon'=>'img/favicon.ico',
+			'keyword'=>'Viettel Huế',
+			'icon'=>'',
 		),
 	),
 );
