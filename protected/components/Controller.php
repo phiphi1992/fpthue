@@ -13,6 +13,7 @@ class Controller extends RController
 	//public $theme = 'admincp';
 	public $image = '';
 	public $renScript = true;
+	public $description = '';
 	public $dataSystem = array();
 	
 	// use for popup schedule
@@ -33,6 +34,7 @@ class Controller extends RController
 	{
 		parent::init();
 		$this->dataSystem = System::model()->find();
+		$this->description = $this->dataSystem->description;
 	}
 	
 	protected function afterRender($view, &$output) {

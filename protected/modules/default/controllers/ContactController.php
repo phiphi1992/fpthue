@@ -2,7 +2,8 @@
 class ContactController extends Controller {
 
 	public function actionIndex() {
-		$this->pageTitle = "Liên hệ";
+		$this->pageTitle = "Liên hệ - ".$this->dataSystem->title;
+		
 		//Setting
 		$criSystem = new CDbCriteria();
 		$criSystem->order = "id DESC";

@@ -3,11 +3,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="<?php echo $this->dataSystem->description; ?>">
+	<title><?php echo isset($this->pageTitle) ? $this->pageTitle : $this->dataSystem->title; ?></title>
+	<meta name="description" content="<?php echo $this->description; ?>">
 	<meta name="keywords" content="<?php echo $this->dataSystem->keyword; ?>">
 	<meta name="author" content="tác giả">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>VIETTEL - <?php echo isset($this->pageTitle) ? $this->pageTitle : Yii::app()->name; ?></title>
 
 	<link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_favicon.ico">
 	<link href='http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext,vietnamese' rel='stylesheet' type='text/css'>
@@ -49,7 +49,7 @@
 <div class="header">
 	<div class="container"> 
 		<!-- Logo -->
-		<a href="/"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo"/ style="height:40px;"></a>
+		<a href="<?php echo PIUrl::createUrl('/');?>"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo"/ style="height:40px;"></a>
 		<!-- Menu -->
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -61,28 +61,28 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav top-2">
                         <li class="active">
-                            <a href="/">Trang chủ</a>
+                            <a href="<?php echo PIUrl::createUrl('/');?>">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="dang-ky-internet">Đăng Ký Internet</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-internet'));?>">Đăng Ký Internet</a>
                         </li>
 						<li>
-                            <a href="dang-ky-cap-quang">Đăng Ký Cáp Quang</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>">Đăng Ký Cáp Quang</a>
                         </li>
                         <li>
-                            <a href="store">Store</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>">Store</a>
                         </li>
 						<li>
-                            <a href="chu-ky-so">Chữ Ký Số</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'chu-ky-so'));?>">Chữ Ký Số</a>
                         </li> 
 						<li>
-                            <a href="sim-card">Sim - Card</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'sim-card'));?>">Sim - Card</a>
                         </li>
 						<li>
-                            <a href="tin-tuc">Tin Tức</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'tin-tuc'));?>">Tin Tức</a>
                         </li>
 						<li>
-                            <a href="lien-he">Liên hệ</a>
+                            <a href="<?php echo PIUrl::createUrl('/default/contact/index');?>">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
