@@ -1,25 +1,54 @@
-<!-- MENU RESPONSIVE -->
-<div id="wd-menu-vertical">
-	<ul>
-		<li><a href="<?php echo PIUrl::createUrl('/home/');?>" class="menu-home mm-selected"><span>Trang chủ</span></a></li>
-		<li><a href="<?php echo PIUrl::createUrl('/home/information');?>" class="menu-introduce"><span>Giới thiệu</span></a></li>
-		<li><a href="<?php echo PIUrl::createUrl('/home/parents');?>" class="menu-parents"><span>Góc phụ huynh</span></a></li>
-		<li><a href="<?php echo PIUrl::createUrl('/home/news');?>" class="menu-news"><span>Tin tức</span></a></li>
-		<li><a href="<?php echo PIUrl::createUrl('/home/album');?>" class="menu-library"><span>Thư viện hình ảnh</span></a>
-		</li>
-		<li><a href="<?php echo PIUrl::createUrl('/home/contact');?>" class="menu-contact"><span>Liên hệ</span></a></li>
-	</ul>
+<!--=== Footer ===-->
+<div class="footer">
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span10">
+				<p>2013 &copy; VIETTELHUE. ALL Rights Reserved.
+			</div>
+			<div class="span2">	
+				<p>Thiết kế bởi <a href="qtmax.com">QTMax</a></p>
+			</div>
+		</div>
+	</div>
 </div>
+<!--=== End Footer ===-->
 
-		<!-- Script -->
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.smoothscroll.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.spritely.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.easing.1.3.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/camera.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/gmap3.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.magnific-popup.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.mmenu.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/common.js"></script>
-	</body>
-</html>
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+<!--JS Google Map-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/gmap/gmap.js"></script>
+<!--End JS Google Map-->
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/parallax-slider/js/modernizr.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/parallax-slider/js/jquery.cslider.js"></script> 
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/bxslider/jquery.bxslider.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/back-to-top.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/app.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/pages/index.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/pages/contact.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		App.init();
+		App.initSliders();
+		App.initBxSlider1();
+		Index.initParallaxSlider();
+		Contact.initMap();  
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="assets/js/respond.js"></script>
+<![endif]-->
+<!-- Like box -->
+<script type="text/javascript">
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1412745882340898&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
