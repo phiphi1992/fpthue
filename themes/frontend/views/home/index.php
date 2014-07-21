@@ -1,178 +1,140 @@
-<?php $this->renderPartial('//common/header'); ?>
-	<div class="content-container">
-		<div class="page-home">
-			<div class="main-content">
-				<!-- BOX SLIDER -->
-				<?php if(!empty($arrSlide)){ ?>
-				<div class="box slider">
-					<div class="img-decoration decoration-01 decoration-top-left"></div>
-					<div class="img-decoration decoration-02 decoration-top-right"></div>
-					<div class="img-decoration decoration-03 decoration-bottom-left"></div>
-					<div class="camera_wrap">
-					<?php foreach($arrSlide as $image){ ?>
-						<div data-src="<?php echo getImage($image->image, 850, 400); ?>"></div>
-					<?php } ?>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<?php } ?>
-				<!-- BOX INTRODUCE -->
-				<div class="wrap-box introduce">
-					<div class="img-decoration decoration-05 decoration-top-right"></div>
-					<div class="wrap-title">
-						<div class="inner">
-							<h1 class="title"><i class="icon-ib icon-intro"></i>Giới thiệu</h1>
-						</div>
-					</div>
-					<div class="box">
-					<?php if(!empty($info)){ ?>
-						<img src="<?php  echo getImage($info['image'], 400, 317); ?>" class="img-introduce" alt="img" width="400" height="317">
-						<div class="content">
-							<?php echo word_limiter($info['description'], 220); ?><a href="<?php echo PIUrl::createUrl('/home/information');?>" class="view-more">Xem thêm</a>
-						</div>
-					<?php } ?>
-					</div>
-				</div>
-				<!-- BOX PHOTO ACTIVITY -->
-				<div class="wrap-box photo-activity">
-					<div class="img-decoration decoration-01 decoration-top-left"></div>
-					<div class="wrap-title">
-						<div class="inner">
-							<h1 class="title"><i class="icon-ib icon-heart"></i>Hình ảnh hoạt động</h1>
-						</div>
-					</div>
-					<div class="box">
-						<?php if(!empty($arrImage)){ ?>
-						<ul class="list-img">
-							<?php foreach($arrImage as $image){ ?>
-							<li title="<?php echo $image->name; ?>">
-								<a href="<?php echo PIUrl::createUrl('/home/image/', array("id"=>$image->id));?>">
-									<img src="<?php echo Albums::model()->getImagePrimary($image->id, 262, 121); ?>" alt="img" width="270" height="124">
-									<p><?php echo word_limiter($image->name, 8); ?></p>
-								</a>
-							</li>
-							<?php } ?>
-						</ul>
-						<?php } ?>
-					</div>
-				</div>
-			</div>
-			<div class="sidebar">
-				<!-- BOX NOTICE -->
-				<div class="wrap-box notice">
-					<div class="img-decoration decoration-04 decoration-bottom-right"></div>
-					<div class="wrap-title">
-						<div class="inner">
-							<h1 class="title"><i class="icon-ib icon-notice"></i>Thông báo</h1>
-						</div>
-					</div>
-					<div class="box list">
-					<?php if(!empty($arrNoti)){ $i = 0; ?>
-						<ul>
-						<?php foreach($arrNoti as $noti){  ?>
-							<li>
-								<a href="<?php echo PIUrl::createUrl('/home/notiDetail', array("alias"=>$noti->alias)); ?>">
-									<span class="number"><?php echo ++$i; ?></span>
-									<div class="content">
-										<p class="brief-content" title="<?php echo $noti->name; ?>"><?php echo word_limiter($noti->name, 11); ?></p>
-										<p class="date-post"><?php echo "Đăng ngày ".date("d/m/Y",$noti->created); ?></p>
-									</div>
-								</a>
-							</li>
-						<?php } ?>
-						</ul>
-					<?php } ?>
-					</div>
-				</div>
+<div class="content-container">
+	<!--=== Slider ===-->
+	<div class="slider-inner">
+		<div id="da-slider" class="da-slider">
+			<div class="da-slide">
+	            <!-- <h2>
+					<i>Dịch Vụ Cáp Quang Siêu Nhanh</i> <br /><br /> 
+					<i>O1699 333 777</i> - <i>O1699 333 777</i>
+				</h2>			
+	            <div class="da-img"><img src="assets/img/common/trangtien.jpg" alt="" /></div> -->
+	        </div>
 
-				<!-- BOX NUTRITION -->
-				<div class="wrap-box nutrition">
-					<div class="wrap-title">
-						<div class="inner">
-							<h1 class="title"><i class="icon-ib icon-nutrition"></i>Góc dinh dưỡng</h1>
-						</div>
-					</div>
-					<div class="box list">
-					<?php if(!empty($arrNutrition)){ $i = 0; ?>
-						<ul>
-						<?php foreach($arrNutrition as $nutrition){  ?>
-							<li>
-								<a href="<?php echo PIUrl::createUrl('/home/food', array("id"=>$nutrition->id)); ?>">
-									<span class="number"><?php echo ++$i; ?></span>
-									<div class="content">
-										<p class="brief-content" title="<?php echo $nutrition->name; ?>"><?php echo word_limiter($nutrition->name,11); ?></p>
-										<p class="date-post"><?php echo "Đăng ngày ".date("d/m/Y",$nutrition->created); ?></p>
-									</div>
-								</a>
-							</li>
-						<?php } ?>
-						</ul>
-					<?php } ?>
-					</div>
-				</div>
-				<!-- BOX NEWS -->
-				<div class="wrap-box news">
-					<div class="wrap-title">
-						<div class="inner">
-							<h1 class="title"><i class="icon-ib icon-leaf"></i>tin tức mới nhất</h1>
-						</div>
-					</div>
-					<div class="box list">
-					<?php if(!empty($arrNew)){ $i = 0; ?>
-						<ul>
-						<?php foreach($arrNew as $new){  ?>
-							<li>
-								<a href="<?php echo PIUrl::createUrl('/home/newDetail', array("alias"=>$new->alias)); ?>">
-									<span class="number"><?php echo ++$i; ?></span>
-									<div class="content">
-										<p class="brief-content" title="<?php echo $new->name;  ?>"><?php echo word_limiter($new->name, 11); ?></p>
-										<p class="date-post"><?php echo "Đăng ngày ".date("d/m/Y",$new->created); ?></p>
-									</div>
-								</a>
-							</li>
-						<?php } ?>
-						</ul>
-					<?php } ?>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-
-
-<div id="footer-container">
-	<div id="footer-sprite"></div>
-	<div class="footer-container">
+	        <nav class="da-arrows">
+	            <span class="da-arrows-prev"></span>
+	            <span class="da-arrows-next"></span>
+	        </nav>
+	    </div><!--/da-slider-->
+	</div><!--/slider-->
+	<!--=== End Slider ===-->
+	<!-- Purchase Block -->
+	<div class="row-fluid purchase margin-bottom-10">
 		<div class="container">
-			<div class="img-decoration footer-decoration-01 decoration-top-left"></div>
-			<div class="img-decoration footer-decoration-02 decoration-top-right"></div>
-			<div class="info-contact">
-				<h3><?php echo $this->dataSystem->title; ?></h3>
-				<p>Địa chỉ: <?php echo $this->dataSystem->address; ?></p>
-				<p>Điện thoại: <?php echo $this->dataSystem->phone; ?></p>
-				<p>Email: <?php echo $this->dataSystem->email; ?></p>
-			</div>
-			<ul class="menu-horizontal">
-				<li><a href="<?php echo PIUrl::createUrl('/home/');?>" class="menu-home <?php echo (yii::app()->getController()->action->id == 'index') ? 'active' : ''; ?>"><i class="icon-ib menu-home-hover"></i><span>Trang chủ</span></a></li>
-				<li><a href="<?php echo PIUrl::createUrl('/home/information');?>" class="menu-introduce <?php echo (yii::app()->getController()->action->id == 'information') ? 'active' : ''; ?>"><i class="icon-ib menu-introduce-hover"></i><span>Giới thiệu</span></a></li>
-				<li><a href="<?php echo PIUrl::createUrl('/home/parents');?>" class="menu-parents <?php echo (yii::app()->getController()->action->id == 'parents') ? 'active' : ''; ?>"><i class="icon-ib menu-parents-hover"></i><span>Góc phụ huynh</span></a></li>
-				<li><a href="<?php echo PIUrl::createUrl('/home/news');?>" class="menu-news <?php echo (yii::app()->getController()->action->id == 'news') ? 'active' : ''; ?>"><i class="icon-ib menu-news-hover"></i><span>Tin tức</span></a></li>
-				<li><a href="<?php echo PIUrl::createUrl('/home/album');?>" class="menu-library <?php echo (yii::app()->getController()->action->id == 'album') ? 'active' : ''; ?>"><i class="icon-ib menu-library-hover"></i><span>Thư viện hình ảnh</span></a></li>
-				<li><a href="<?php echo PIUrl::createUrl('/home/contact');?>" class="menu-contact <?php echo (yii::app()->getController()->action->id == 'contact') ? 'active' : ''; ?>"><i class="icon-ib menu-contact-hover"></i><span>Liên hệ</span></a></li>
-			</ul>
-		</div>
-		<div class="clearfix"></div>
-		<div class="wrap-copyright">
-			<div class="container">
-				<p class="copyright">Copyright © 2014 Trường mầm non Bảo Ngọc. <span>All rights reserved</span></p>
-				<p class="designby">Designed by <a href="javascript:void(0)">Kovo.vn</a></p>
-			</div>
+			<p style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50>Viettel Huế xin kính chào quý khách. Hotline liên hệ : 054 3786 999 - 0905 999 789</marquee></p>
 		</div>
 	</div>
+	<div class="container">
+		<div class="span9" style="margin-left:10px;">
+			<div class="message"></div>
+			<?php if(!empty($arrInternet)) {?>
+			<div class="internet">
+				<div class="headline"><h3>ĐĂNG KÝ INTERNET</h3></div>
+				<div class="row-fluid margin-bottom-10">
+					<ul class="thumbnails">
+						<?php foreach ($arrInternet as $internet) {?>
+						<li class="span4 thumbnail-style thumbnail-kenburn item">
+							<div class="overflow-hidden"><img src="<?php echo getImage($internet['image'],260,160,0)?>" alt="" /></div>
+							<h5><a href="#"><strong><?php echo $internet['name']?></strong></a></h5>
+							<p><i><?php echo word_limiter($internet['description'],20)?></i></p>
+						</li>
+					<?php }?>
+					</ul>
+				</div>
+			</div>
+			<?php }?>
+			<?php if(!empty($arrOptical)) {?>
+			<div class="optical">
+				<div class="headline"><h3>ĐĂNG KÝ CÁP QUANG</h3></div>
+				<div class="row-fluid margin-bottom-10">
+					<ul class="thumbnails">
+						<?php foreach ($arrOptical as $arrOptical) {?>
+						<li class="span4 thumbnail-style thumbnail-kenburn item">
+							<div class="overflow-hidden"><img src="<?php echo getImage($arrOptical['image'],260,160,0)?>" alt="" /></div>
+							<h5><a href="#"><strong><?php echo $arrOptical['name']?></strong></a></h5>
+							<p><i><?php echo word_limiter($arrOptical['description'],20)?></i></p>
+						</li>
+					<?php }?>
+					</ul>
+				</div>
+			</div>
+			<?php }?>
+			<!--Quảng cáo ngang-->
+			<!-- <div class="row-fluid margin-bottom-10">
+				<div class="span12" style="text-align: center;">
+					<a href="#"><img src="<?php echo Yii::app()->theme->baseUrl;?>assets/img/common/quangcao_2.gif" alt="Quảng cáo"/></a>
+				</div>
+			</div>
+			<!--End-->
+			<?php if(!empty($arrStore)) {?>
+			<div class="store">
+				<div class="headline"><h3>STORE</h3></div>
+				<ul class="thumbnails">
+					<?php foreach ($arrStore as $store) {?>
+					<li class="span3">
+						<div class="thumbnail-style thumbnail-kenburn item">
+							<div class="thumbnail-img">
+								<div class="overflow-hidden" style="height:150px;"><img src="<?php echo getImage($arrOptical['image'],250,160,0)?>" alt="<?php echo $store['name']?>" /></div>
+							</div>
+							<h5><a class="hover-effect" href="#"><strong><?php echo $store['name']?></strong></a></h5>
+							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
+						</div>
+					</li>
+					<?php }?>
+				</ul>
+			</div>
+			<?php }?>
+			<?php if(!empty($arrPartner)) {?>
+			<div id="clients-flexslider parter" class="flexslider home clients">
+				<div class="headline"><h3>ĐỐI TÁC</h3></div>
+				<ul class="slides">
+					<?php foreach ($arrPartner as $partner) {?>
+					<li style="display: block;">
+						<a href="<?php echo $partner['link'];?>">
+							<img src="<?php echo getImage($partner['image'],80,80,0)?>" alt="" /> 
+							<img src="<?php echo getImage($partner['image'],80,80,0)?>" class="color-img" alt="" />
+						</a>
+					</li>
+					<?php }?>
+				</ul>
+			</div>
+			<?php }?>
+		</div>
+		<?php $this->renderPartial('//common/right',array(
+			'arrNews'=>$arrNews,
+			'arrSystem'=>$arrSystem,
+			'arrSupport'=>$arrSupport,
+			'arrAds'=>$arrAds
+		));?>
+	</div>
 </div>
-</div>
-
-<!-- FOOTER CONTAINER -->
-<?php $this->renderPartial('//common/footer'); ?>
+<script type="text/javascript">
+$(document).ready(function() {
+	/*Set height internet item*/
+	var _heightInternetMax = 0;
+	$(".internet .thumbnail-style").each(function(){
+		var height = $(this).height();
+		if(height > _heightInternetMax){
+			_heightInternetMax = height;
+		}
+	});
+	$(".internet .thumbnail-style").css('height',_heightInternetMax+'px');
+	/*Set height optical item*/
+	var _heightOpticalMax = 0;
+	$(".optical .thumbnail-style").each(function(){
+		var height = $(this).height();
+		if(height > _heightOpticalMax){
+			_heightOpticalMax = height;
+		}
+	});
+	$(".optical .thumbnail-style").css('height',_heightOpticalMax+'px');
+	/*Set height store item*/
+	var _heightStoreMax = 0;
+	$(".store .thumbnail-style").each(function(){
+		var height = $(this).height();
+		if(height > _heightStoreMax){
+			_heightStoreMax = height;
+		}
+	});
+	$(".store .thumbnail-style").css('height',_heightStoreMax+'px');
+});
+</script>
