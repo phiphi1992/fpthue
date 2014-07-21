@@ -18,9 +18,9 @@
 		<h4 class="color-green">Bình luận</h4>
 		<?php 
 			$this->widget('application.extensions.fb-comment.FBComment', array(
-			'url' =>'http://local.viettel.com/default/internet/detail/id/'.$model['id'], // required site url
+			'url' =>PIURl::createAbsoluteUrl('default/new/detail',array('alias'=>$model['alias'])), // required site url
   			'posts' => 10, // optional no. of posts (default: 10)
-			'width'=>700
+			'width'=>'100%'
 		));?>
 		</div>
 		<?php }?>

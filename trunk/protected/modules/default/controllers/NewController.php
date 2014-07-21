@@ -34,7 +34,7 @@ class NewController extends Controller {
 		$criSupport = new CDbCriteria();
 		$criSupport->order = "id DESC";
 		$arrSupport = Supports::model()->findAll($criSupport);
-
+		$this->pageTitle = $this->pageTitle = $category->name . ' - ' . $this->dataSystem->title;
 		$this->render('index',array(
 			'model'=> News::model()->findAll($criteria),
 			'page_size'=> $this->pageSize,
@@ -47,17 +47,18 @@ class NewController extends Controller {
 		));
 	}
 
-	public function actionDetail($alias) {
-		dump($alias);
-
-		$model = News::model()->findByPk($alias);
+	public function actionDetail($category=null,$alias=null) {
+		$model = News::model()->findByAttributes(array('alias'=>$alias));
 		if(empty($model)) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
+		$this->description = $model->description;
+		$this->pageTitle = $model->name . ' - ' . $this->dataSystem->title;
 		//Related
 		$criRelated = new CDBCriteria;
 		$criRelated->addCondition("category_news_id = 1");
-		$criRelated->addCondition("alias != ".$aliasNew);
+		$criRelated->addCondition("alias !=:alias");
+		$criRelated->params = array(':alias'=>$alias);
 		$criRelated->order = "id DESC";
 		$criRelated->limit = 8;
 		$arrRelated = News::model()->findAll($criRelated);

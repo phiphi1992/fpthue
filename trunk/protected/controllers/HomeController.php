@@ -15,7 +15,7 @@ class HomeController extends Controller
 
 	public function actionIndex()
 	{
-		$this->pageTitle = "Trang chủ";
+		$this->pageTitle = $this->dataSystem->title;
 		
 		// du lieu slide
 		$arrSlide = Slides::model()->findAll();
@@ -26,11 +26,6 @@ class HomeController extends Controller
 		$cri->order = 'id DESC';
 		$cri->limit = 6;
 		$arrImage = Albums::model()->findAll($cri);
-
-		//Setting
-		$criSystem = new CDbCriteria();
-		$criSystem->order = "id DESC";
-		$arrSystem = System::model()->find($criSystem);
 
 		// Dang ky Internet
 		$criInternet = new CDBCriteria;
@@ -83,7 +78,6 @@ class HomeController extends Controller
 			'arrSlide' => $arrSlide,
 			'info' => $info,
 			'arrImage' => $arrImage,
-			'arrSystem'=> $arrSystem,
 			'arrInternet' => $arrInternet,
 			'arrOptical'=> $arrOptical,
 			'arrStore'=> $arrStore,

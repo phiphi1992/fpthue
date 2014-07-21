@@ -3,11 +3,11 @@
 	<div class="slider-inner">
 		<div id="da-slider" class="da-slider">
 			<div class="da-slide">
-	            <!-- <h2>
+	            <h2>
 					<i>Dịch Vụ Cáp Quang Siêu Nhanh</i> <br /><br /> 
 					<i>O1699 333 777</i> - <i>O1699 333 777</i>
-				</h2>			
-	            <div class="da-img"><img src="assets/img/common/trangtien.jpg" alt="" /></div> -->
+				</h2>
+	            <div class="da-img"><img src="http://media6.tiin.vn/media01/4ecda874f3335/2014/07/17/9cc14867-00da-4162-94dc-0201ab94df81.jpg" alt="" /></div>
 	        </div>
 
 	        <nav class="da-arrows">
@@ -101,7 +101,6 @@
 		</div>
 		<?php $this->renderPartial('//common/right',array(
 			'arrNews'=>$arrNews,
-			'arrSystem'=>$arrSystem,
 			'arrSupport'=>$arrSupport,
 			'arrAds'=>$arrAds
 		));?>
