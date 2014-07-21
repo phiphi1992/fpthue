@@ -4,12 +4,12 @@ return array(
 	'login'=>'user/login',
 	''=>'home',	
 	'lien-he'=>'default/contact/index',
-	
-	'<alias>'=>'default/new/index',
+	'admin'=>'admin/default/index',
+	'<alias>/danh-muc'=>array('default/new/index', 'urlSuffix'=>'.html', 'caseSensitive'=>true),
+	'<category:.*?>/<alias>/bai-viet'=>array('default/new/detail', 'urlSuffix'=>'.html', 'caseSensitive'=>true),
 	'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 	'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 	'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-	'<category:.*?>/<alias>'=>'default/new/detail',
 );
 
 /* End file _routers.php */
