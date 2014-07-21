@@ -37,114 +37,21 @@
         </div><!--/span3-->        
     </div><!--/row-fluid-->        
 
-    <!-- Our Clients -->
-    <div id="clients-flexslider" class="flexslider home clients">
-        <div class="headline"><h3>ĐỐI TÁC</h3></div>    
-        <ul class="slides">
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/hp_grey.png" alt="" /> 
-                    <img src="assets/img/clients/hp.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/igneus_grey.png" alt="" /> 
-                    <img src="assets/img/clients/igneus.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/vadafone_grey.png" alt="" /> 
-                    <img src="assets/img/clients/vadafone.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/walmart_grey.png" alt="" /> 
-                    <img src="assets/img/clients/walmart.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/shell_grey.png" alt="" /> 
-                    <img src="assets/img/clients/shell.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/natural_grey.png" alt="" /> 
-                    <img src="assets/img/clients/natural.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/aztec_grey.png" alt="" /> 
-                    <img src="assets/img/clients/aztec.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/gamescast_grey.png" alt="" /> 
-                    <img src="assets/img/clients/gamescast.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/cisco_grey.png" alt="" /> 
-                    <img src="assets/img/clients/cisco.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/everyday_grey.png" alt="" /> 
-                    <img src="assets/img/clients/everyday.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/cocacola_grey.png" alt="" /> 
-                    <img src="assets/img/clients/cocacola.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/spinworkx_grey.png" alt="" /> 
-                    <img src="assets/img/clients/spinworkx.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/shell_grey.png" alt="" /> 
-                    <img src="assets/img/clients/shell.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/natural_grey.png" alt="" /> 
-                    <img src="assets/img/clients/natural.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/gamescast_grey.png" alt="" /> 
-                    <img src="assets/img/clients/gamescast.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/everyday_grey.png" alt="" /> 
-                    <img src="assets/img/clients/everyday.png" class="color-img" alt="" />
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/clients/spinworkx_grey.png" alt="" /> 
-                    <img src="assets/img/clients/spinworkx.png" class="color-img" alt="" />
-                </a>
-            </li>
-        </ul>
-    </div>
+	<?php if(!empty($arrPartner)) {?>
+	<div id="clients-flexslider parter" class="flexslider home clients">
+		<div class="headline"><h3>ĐỐI TÁC</h3></div>
+		<ul class="slides">
+			<?php foreach ($arrPartner as $partner) {?>
+			<li style="display: block;">
+				<a href="<?php echo $partner['link'];?>">
+					<img src="<?php echo getImage($partner['image'],80,80,0)?>" alt="" /> 
+					<img src="<?php echo getImage($partner['image'],80,80,0)?>" class="color-img" alt="" />
+				</a>
+			</li>
+			<?php }?>
+		</ul>
+	</div>
+	<?php }?>
 </div>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery.validate.js"></script>
 <script type="text/javascript">
