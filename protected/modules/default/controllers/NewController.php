@@ -35,7 +35,15 @@ class NewController extends Controller {
 		$criSupport->order = "id DESC";
 		$arrSupport = Supports::model()->findAll($criSupport);
 		$this->pageTitle = $this->pageTitle = $category->name . ' - ' . $this->dataSystem->title;
+
+		/*Slider*/
+		$criBanner = new CDbCriteria();
+		$criBanner->order = "id DESC";
+		$criBanner->limit = 3;
+		$arrBanner = Slides::model()->findAll($criBanner);
+
 		$this->render('index',array(
+			'arrBanner'=>$arrBanner,
 			'model'=> News::model()->findAll($criteria),
 			'page_size'=> $this->pageSize,
 			'count'=>$count,

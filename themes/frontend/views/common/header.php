@@ -27,8 +27,9 @@
 	<!-- CSS Implementing Plugins -->    
 	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/font-awesome/css/font-awesome.css" />
 	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/flexslider/flexslider.css" type="text/css" media="screen" />      
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/parallax-slider/css/parallax-slider.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/bxslider/jquery.bxslider.css" />
+	
+    <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/revolution_slider/css/rs-style.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/revolution_slider/rs-plugin/css/settings.css" media="screen" />   
 	<!-- CSS Theme -->    
 	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/css/themes/default.css" id="style_color" />
 
