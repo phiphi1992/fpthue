@@ -18,7 +18,7 @@
 		<h4 class="color-green">Bình luận</h4>
 		<?php 
 			$this->widget('application.extensions.fb-comment.FBComment', array(
-			'url' =>PIURl::createAbsoluteUrl('default/new/detail',array('alias'=>$model['alias'])), // required site url
+			'url' =>PIUrl::createAbsoluteUrl('default/new/detail',array('alias'=>$model['alias'])), // required site url
   			'posts' => 10, // optional no. of posts (default: 10)
 			'width'=>'100%'
 		));?>

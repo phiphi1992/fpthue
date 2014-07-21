@@ -65,6 +65,8 @@ class SlidesController extends Controller
 	public function actionDelete($id)
 	{
 		$model = Slides::model()->findByPk($id);
+		if($model == null) 
+			$this->redirect(PIUrl::createUrl('/admin/slides/index/'));
 		$name = $model->attributes['image'];
 		$this->loadModel($id)->delete();
 		if(file_exists(Yii::app()->basePath.'/../upload/images/'.$name) && $name->image != '')
