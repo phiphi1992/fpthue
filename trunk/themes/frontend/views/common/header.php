@@ -60,29 +60,32 @@
 					 <span class="icon-bar"></span>
 				</a><!-- /nav-collapse -->
                 <div class="nav-collapse collapse">
+                	<?php 
+                	$alias = '';
+                	if(!empty($_GET['alias'])) $alias = $_GET['alias'];?>
                     <ul class="nav top-2">
-                        <li class="active">
+                        <li class="<?php echo Yii::app()->controller->id == 'home' ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/home/index');?>">Trang chủ</a>
                         </li>
-                        <li>
+                        <li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-internet') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-internet'));?>">Đăng Ký Internet</a>
                         </li>
-						<li>
+						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-cap-quang') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>">Đăng Ký Cáp Quang</a>
                         </li>
-                        <li>
+                        <li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>">Store</a>
                         </li>
-						<li>
+						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='chu-ky-so') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'chu-ky-so'));?>">Chữ Ký Số</a>
                         </li> 
-						<li>
+						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='sim-card') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'sim-card'));?>">Sim - Card</a>
                         </li>
-						<li>
+						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='tin-tuc') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'tin-tuc'));?>">Tin Tức</a>
                         </li>
-						<li>
+						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'contact') ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/contact/index');?>">Liên hệ</a>
                         </li>
                     </ul>

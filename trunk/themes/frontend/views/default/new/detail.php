@@ -29,7 +29,7 @@
 			<h4 class="color-green">Tin liên quan</h4>
 			<div style="margin-left: 20px;" >
 				<?php foreach ($arrRelated as $related) {?>
-				<i class="icon-hand-right"></i> <a href="/default/internet/detail/id/<?php echo $related['id'];?>" style="color: rgb(18, 65, 253);"><strong><?php echo $related['name'];?></strong></a> (<?php echo date('d/m/Y',$related['created']);?>)<br/>
+				<i class="icon-hand-right"></i> <a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'tin-tuc','alias'=>$related['alias']));?>" style="color: rgb(18, 65, 253);"><strong><?php echo $related['name'];?></strong></a> (<?php echo date('d/m/Y',$related['created']);?>)<br/>
 				<?php }?>
 			</div>
 		</div>

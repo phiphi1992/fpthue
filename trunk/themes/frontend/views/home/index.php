@@ -12,13 +12,13 @@
 			<div class="message"></div>
 			<?php if(!empty($arrInternet)) {?>
 			<div class="internet">
-				<div class="headline"><a href="dang-ky-internet"><h3>ĐĂNG KÝ INTERNET</h3></a></div>
+				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-internet'));?>"><h3>ĐĂNG KÝ INTERNET</h3></a></div>
 				<div class="row-fluid margin-bottom-10">
 					<ul class="thumbnails">
 						<?php foreach ($arrInternet as $internet) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
 							<div class="overflow-hidden"><img src="<?php echo getImage($internet['image'],260,160,0)?>" alt="" /></div>
-							<h5><a href="dang-ky-internet/<?php echo $internet['alias'];?>"><strong><?php echo $internet['name']?></strong></a></h5>
+							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-internet','alias'=>$internet['alias']));?>"><strong><?php echo $internet['name']?></strong></a></h5>
 							<p><i><?php echo word_limiter($internet['description'],20)?></i></p>
 						</li>
 					<?php }?>
@@ -28,13 +28,13 @@
 			<?php }?>
 			<?php if(!empty($arrOptical)) {?>
 			<div class="optical">
-				<div class="headline"><a href="dang-ky-cap-quang"><h3>ĐĂNG KÝ CÁP QUANG</h3></a></div>
+				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>"><h3>ĐĂNG KÝ CÁP QUANG</h3></a></div>
 				<div class="row-fluid margin-bottom-10">
 					<ul class="thumbnails">
 						<?php foreach ($arrOptical as $arrOptical) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
 							<div class="overflow-hidden"><img src="<?php echo getImage($arrOptical['image'],260,160,0)?>" alt="" /></div>
-							<h5><a href="dang-ky-cap-quang/<?php echo $arrOptical['alias'];?>"><strong><?php echo $arrOptical['name']?></strong></a></h5>
+							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$internet['alias']));?>"><strong><?php echo $arrOptical['name']?></strong></a></h5>
 							<p><i><?php echo word_limiter($arrOptical['description'],20)?></i></p>
 						</li>
 					<?php }?>
@@ -51,7 +51,7 @@
 			<!--End-->
 			<?php if(!empty($arrStore)) {?>
 			<div class="store">
-				<div class="headline"><a href="store"><h3>STORE</h3></a></div>
+				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>"><h3>STORE</h3></a></div>
 				<ul class="thumbnails">
 					<?php foreach ($arrStore as $store) {?>
 					<li class="span3">
@@ -59,7 +59,7 @@
 							<div class="thumbnail-img">
 								<div class="overflow-hidden" style="height:150px;"><img src="<?php echo getImage($arrOptical['image'],250,160,0)?>" alt="<?php echo $store['name']?>" /></div>
 							</div>
-							<h5><a class="hover-effect" href="store/<?php echo $store['alias'];?>"><strong><?php echo $store['name']?></strong></a></h5>
+							<h5><a class="hover-effect" href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'store','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
 							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
 						</div>
 					</li>

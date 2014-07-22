@@ -23,12 +23,12 @@
 	</div>
 	<?php if(!empty($arrNews)) {?>
 	<div class="posts">
-		<div class="headline"><a href="tin-tuc"><h3>TIN TỨC</h3></a></div>
+		<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'tin-tuc'));?>"><h3>TIN TỨC</h3></a></div>
 		<?php foreach ($arrNews as $new) {?>
 		<dl class="dl-horizontal">
-			<dt><a href="tin-tuc/<?php echo $new['alias']?>"><img src="<?php echo getImage($new['image'])?>" alt="<?php echo $new['name']?>" /></a></dt>
+			<dt><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'tin-tuc','alias'=>$new['alias']));?>"><img src="<?php echo getImage($new['image'])?>" alt="<?php echo $new['name']?>" /></a></dt>
 			<dd>
-				<p><a href="tin-tuc/<?php echo $new['alias']?>"><?php echo $new['name']?></a></p>
+				<p><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'tin-tuc','alias'=>$new['alias']));?>"><?php echo $new['name']?></a></p>
 				<p><i class="icon-time"></i> <?php echo date('d/m/Y',$new['created'])?></p>
 		</dl>
 		<?php }?>
