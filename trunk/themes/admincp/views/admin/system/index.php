@@ -67,6 +67,13 @@
 					</div>
 
 					<div class="control-group">
+						<?php echo $form->labelEx($model,'marquee',array('class'=>'control-label')); ?>
+						<div class="controls">
+							<?php echo $form->textField($model,'marquee',array('placeholder'=>'Chữ chạy', 'class'=>'span12')); ?>
+						</div>
+					</div>
+
+					<div class="control-group">
 						<?php echo $form->labelEx($model,'hotline',array('class'=>'control-label')); ?>
 						<div class="controls">
 							<?php echo $form->textField($model,'hotline',array('placeholder'=>'hotline', 'class'=>'span12')); ?>

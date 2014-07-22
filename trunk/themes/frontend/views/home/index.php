@@ -5,9 +5,11 @@
 	));?>
 	<!--=== End Slider ===-->
 	<div class="container">
+		<?php if(!empty($this->dataSystem['marquee']) && $this->dataSystem['marquee'] != '') {?>
 		<div class="row-fluid purchase margin-bottom-10">
-				<strong style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50>Viettel Huế xin kính chào quý khách. Hotline liên hệ : 054 3786 999 - 0905 999 789</marquee></strong>
+			<strong style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50><?php echo $this->dataSystem['marquee'];?></marquee></strong>
 		</div>
+		<?php }?>
 		<div class="span9" style="margin-left:10px;">
 			<div class="message"></div>
 			<?php if(!empty($arrInternet)) {?>
