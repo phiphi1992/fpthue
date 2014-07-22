@@ -1,10 +1,10 @@
 <div class="span3" style="margin-left:20px;"> 
 	<div class="posts">
 		<div class="headline"><h3>HỖ TRỢ TRỰC TUYẾN</h3></div>
-			<?php if(!empty($arrSystem)) {?>
+			<?php if(!empty($this->dataSystem['hotline']) && $this->dataSystem['hotline'] != '') {?>
 			<dl class="dl-horizontal">
 				<div class="hotline">
-					<span><strong><?php echo $arrSystem['hotline'];?></strong></span>
+					<span><strong><?php echo $this->dataSystem['hotline'];?></strong></span>
 				</div>
 			</dl>
 			<?php }?>

@@ -62,27 +62,30 @@
                 <div class="nav-collapse collapse">
                 	<?php 
                 	$alias = '';
-                	if(!empty($_GET['alias'])) $alias = $_GET['alias'];?>
+                	if(!empty($_GET['alias'])) $alias = $_GET['alias'];
+                	$category = '';
+                	if(!empty($_GET['category'])) $category = $_GET['category'];
+                	?>
                     <ul class="nav top-2">
                         <li class="<?php echo Yii::app()->controller->id == 'home' ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/home/index');?>">Trang chủ</a>
                         </li>
-                        <li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-internet') ? 'active' : '' ?>">
+                        <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-internet') || $category == strtolower('dang-ky-internet')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-internet'));?>">Đăng Ký Internet</a>
                         </li>
-						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-cap-quang') ? 'active' : '' ?>">
+						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-cap-quang') || $category == strtolower('dang-ky-cap-quang')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>">Đăng Ký Cáp Quang</a>
                         </li>
-                        <li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') ? 'active' : '' ?>">
+                        <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') || $category == strtolower('store')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>">Store</a>
                         </li>
-						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='chu-ky-so') ? 'active' : '' ?>">
+						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='chu-ky-so') || $category == strtolower('chu-ky-so')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'chu-ky-so'));?>">Chữ Ký Số</a>
                         </li> 
-						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='sim-card') ? 'active' : '' ?>">
+						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='sim-card') || $category == strtolower('sim-card')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'sim-card'));?>">Sim - Card</a>
                         </li>
-						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='tin-tuc') ? 'active' : '' ?>">
+						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='tin-tuc') || $category == strtolower('tin-tuc')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'tin-tuc'));?>">Tin Tức</a>
                         </li>
 						<li class ="<?php echo (!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'contact') ? 'active' : '' ?>">

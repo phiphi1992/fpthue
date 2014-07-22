@@ -36,12 +36,12 @@ class System extends PIActiveRecord
 			array('title, address, title_footer', 'length', 'max'=>512),
 			array('description', 'length', 'max'=>1024),
 			array('phone ', 'length', 'min'=>10, 'max'=>32, 'tooShort'=>'{attribute} quá ngắn'),
-			array('email', 'length', 'max'=>255),
+			array('email,marquee', 'length', 'max'=>255),
 			array('email', 'email', 'message'=>'{attribute} không hợp lệ'),
 			array('logo', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>'300000', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, phone, fax, address, email, title_footer, logo', 'safe', 'on'=>'search'),
+			array('id, title, description, phone, fax, address, email, title_footer, logo, marquee', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +73,7 @@ class System extends PIActiveRecord
 			'logo' => 'Logo',
 			'hotline'=>'Hotline',
 			'keyword'=>'Từ khóa',
+			'marquee'=>'Chữ chạy'
 		);
 	}
 
@@ -104,6 +105,7 @@ class System extends PIActiveRecord
 		$criteria->compare('title_footer',$this->title_footer,true);
 		$criteria->compare('logo',$this->logo,true);
 		$criteria->compare('hotline',$this->hotline,true);
+		$criteria->compare('marquee',$this->marquee,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
