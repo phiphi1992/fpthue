@@ -2,7 +2,7 @@
 /*Nơi khai báo xác lập url routing*/
 return array(
 	'login'=>'user/login',
-	''=>'home',	
+	''=>'home/index',	
 	'lien-he'=>'default/contact/index',
 	'admin'=>'admin/default/index',
 	'<alias>/danh-muc'=>array('default/new/index', 'urlSuffix'=>'.html', 'caseSensitive'=>true),

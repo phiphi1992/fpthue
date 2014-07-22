@@ -50,7 +50,7 @@
 <div class="header">
 	<div class="container"> 
 		<!-- Logo -->
-		<a href="<?php echo PIUrl::createUrl('/');?>"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo"/ style="height:40px;"></a>
+		<a href="<?php echo PIUrl::createUrl('/home/index');?>"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo"/ style="height:40px;"></a>
 		<!-- Menu -->
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -62,7 +62,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav top-2">
                         <li class="active">
-                            <a href="<?php echo PIUrl::createUrl('/');?>">Trang chủ</a>
+                            <a href="<?php echo PIUrl::createUrl('/home/index');?>">Trang chủ</a>
                         </li>
                         <li>
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-internet'));?>">Đăng Ký Internet</a>
