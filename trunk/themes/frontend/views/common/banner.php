@@ -4,8 +4,8 @@
 	    <div class="fullwidthabnner">
 	        <ul>
 	        	<?php foreach ($arrBanner as $banner) {?>
-	            <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300" data-thumb="<?php echo getImage($banner['image'],1200,500,0)?>">
-	                <img src="<?php echo getImage($banner['image'],1200,500,0)?>" />
+	            <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300" data-thumb="<?php echo getImage($banner['image'],1200,400,0)?>">
+	                <img src="<?php echo getImage($banner['image'],1200,400,0)?>" />
 	            </li>
 	            <?php }?>
 	        </ul>
