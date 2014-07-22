@@ -4,13 +4,10 @@
 		'arrBanner'=>$arrBanner
 	));?>
 	<!--=== End Slider ===-->
-	<!-- Purchase Block -->
-	<div class="row-fluid purchase margin-bottom-10">
-		<div class="container">
-			<p style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50>Viettel Huế xin kính chào quý khách. Hotline liên hệ : 054 3786 999 - 0905 999 789</marquee></p>
-		</div>
-	</div>
 	<div class="container">
+		<div class="row-fluid purchase margin-bottom-10">
+				<strong style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50>Viettel Huế xin kính chào quý khách. Hotline liên hệ : 054 3786 999 - 0905 999 789</marquee></strong>
+		</div>
 		<div class="span9" style="margin-left:10px;">
 			<div class="message"></div>
 			<?php if(!empty($arrInternet)) {?>
