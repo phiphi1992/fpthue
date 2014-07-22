@@ -6,21 +6,40 @@
 	<?php }?>
 	<div class="span9" style="margin-left: 10px;">
 		<?php if(!empty($model)) {?>
-		<div class="blog margin-bottom-20">
-			<h3><?php echo $model['name']?></h3>
-			<ul class="unstyled inline">
-				<li><i class="icon-time"></i> <?php echo date('d/m/Y',$model['created']);?></li>
-			</ul>
-			<p><?php echo $model['content'];?></p>
+		<div class="row-fluid margin-bottom-30">
+			<img class="pull-left lft-img-margin img-width-200" src="<?php echo getImage($model['image'],260,160,0)?>" alt="" />
+			<h4><?php echo $model['name']?></h4>
+			<i class="icon-time"></i> <?php echo date('d/m/Y',$model['created']);?> | <i class="icon-user-md"></i> Admin
+			<p><strong><?php echo $model['description']?></strong></p>
+		</div>
+		<div class="row-fluid margin-bottom-20">
+			<?php echo $model['content'];?>
+		</div>
+		<div class="facebook_like_share">
+			<div class="fb-like" style="float:left; margin-right:30px;" data-href="https://www.facebook.com/pages/Viettel-Telecom-Hu%E1%BA%BF/600489353403220" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+			<div class="twitter_googleplus">
+			<?php $this->widget('application.extensions.social.social', array(
+				'style'=>'horizontal', 
+				'networks' => array(
+					'twitter'=>array(
+						'data-via'=>'', //http://twitter.com/#!/YourPageAccount if exists else leave empty
+					),
+					'googleplusone'=>array(
+						"size"=>"medium",
+						"annotation"=>"bubble",
+					)
+				)
+			));?>
+			</div>
 		</div>
 		<div class="facebook_comment">
-		<h4 class="color-green">Bình luận</h4>
-		<?php 
-			$this->widget('application.extensions.fb-comment.FBComment', array(
-			'url' =>PIUrl::createAbsoluteUrl('default/new/detail',array('alias'=>$model['alias'])), // required site url
-  			'posts' => 10, // optional no. of posts (default: 10)
-			'width'=>'100%'
-		));?>
+			<h4 class="color-green">Bình luận</h4>
+			<?php 
+				$this->widget('application.extensions.fb-comment.FBComment', array(
+				'url' =>PIUrl::createAbsoluteUrl('default/new/detail',array('alias'=>$model['alias'])), // required site url
+	  			'posts' => 10, // optional no. of posts (default: 10)
+				'width'=>'100%'
+			));?>
 		</div>
 		<?php }?>
 		<?php if(!empty($arrRelated)) {?>
@@ -40,10 +59,3 @@
 		'arrSupport'=>$arrSupport
 	));?>
 </div>
-<script type="text/javascript">
-$(window).load(function() {
-	var _width = $('.span9').width();
-	$('.facebook_comment .fb_iframe_widget iframe').css('width', '700px');
-	$('.facebook-comment .fb-comments .pluginFontHelvetica').children().attr('style', 'width:700px !important');
-});
-</script>

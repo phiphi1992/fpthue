@@ -48,7 +48,7 @@
 	<div  style="text-align: center; margin-left:-30px;">
 		<figure class="embed-section">
 			<iframe src="https://player.vimeo.com/video/53111938" width="250" height="200"></iframe>
-		</figure>                            
+		</figure>
 	</div>
 	<!-- End -->
 	<!--Pictures slide-->
@@ -73,6 +73,20 @@
 	<!-- Fan Facebok -->
 	<div class="fanpage">
 		<div class="fb-like-box" data-href="https://www.facebook.com/pages/Viettel-Telecom-Hu%E1%BA%BF/600489353403220?ref=hl" data-width="270px" data-height="250px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+	</div>
+	<div class="twitter_googleplus">
+	<?php $this->widget('application.extensions.social.social', array(
+		'style'=>'horizontal', 
+		'networks' => array(
+			'twitter'=>array(
+				'data-via'=>'', //http://twitter.com/#!/YourPageAccount if exists else leave empty
+			),
+			'googleplusone'=>array(
+				"size"=>"medium",
+				"annotation"=>"bubble",
+			)
+		)
+	));?>
 	</div>
 	<!-- End Fan Facebok -->
 </div>

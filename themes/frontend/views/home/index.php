@@ -21,7 +21,7 @@
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
 							<div class="overflow-hidden"><img src="<?php echo getImage($internet['image'],260,160,0)?>" alt="" /></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-internet','alias'=>$internet['alias']));?>"><strong><?php echo $internet['name']?></strong></a></h5>
-							<i class="icon-time"></i> <?php echo date('d/m/Y',$internet['created']);?> <i class="icon-user-md"></i> Admin
+							<i class="icon-time"></i> <?php echo date('d/m/Y',$internet['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($internet['description'],20)?></i></p>
 						</li>
 					<?php }?>
@@ -38,7 +38,7 @@
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
 							<div class="overflow-hidden"><img src="<?php echo getImage($optical['image'],260,160,0)?>" alt="" /></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$optical['alias']));?>"><strong><?php echo $optical['name']?></strong></a></h5>
-							<i class="icon-time"></i> <?php echo date('d/m/Y',$optical['created']);?> <i class="icon-user-md"></i> Admin
+							<i class="icon-time"></i> <?php echo date('d/m/Y',$optical['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($optical['description'],20)?></i></p>
 						</li>
 					<?php }?>
@@ -64,7 +64,7 @@
 								<div class="overflow-hidden" style="height:150px;"><img src="<?php echo getImage($store['image'],250,160,0)?>" alt="<?php echo $store['name']?>" /></div>
 							</div>
 							<h5><a class="hover-effect" href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'store','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
-							<i class="icon-time"></i> <?php echo date('d/m/Y',$store['created']);?> <i class="icon-user-md"></i> Admin
+							<i class="icon-time"></i> <?php echo date('d/m/Y',$store['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
 						</div>
 					</li>

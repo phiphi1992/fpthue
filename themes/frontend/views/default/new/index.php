@@ -19,7 +19,7 @@
 					<div class="span6 item" style="margin-left:5px;">
 						<img class="pull-left lft-img-margin" src="<?php echo getImage($new['image'],150,90,0)?>" alt="" />
 						<h5><strong><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>$category['alias'],'alias'=>$new['alias']));?>"><?php echo $new['name'];?></a></strong></h5>
-						<i class="icon-time"></i> <?php echo date('d/m/Y',$new['created']);?>
+						<i class="icon-time"></i> <?php echo date('d/m/Y',$new['created']);?> | <i class="icon-user-md"></i> Admin
 						<p><i><?php echo word_limiter($new['description'],20)?></i></p>
 					</div>
 					<?php }?>
