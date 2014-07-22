@@ -54,35 +54,12 @@
 	<?php }?>
 </div>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery.validate.js"></script>
+<!--JS Google Map-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/gmap/gmap.js"></script>
+<!--End JS Google Map-->
 <script type="text/javascript">
-$(document).ready(function(){
-	// validate signup submit
-	$("#formContact").validate({
-		rules: {
-			fullName: "required",
-			email: {
-				required: true,
-				email: true
-			},
-		},
-		messages: {
-			fullname: "Họ tên không được trống",
-			email: "Email không đúng định dạng",
-		}
-	});
-	$('.sendMail').on('click',function(e){
-		alert('send');
-		frm = $('#formContact');
-		$.ajax({
-			type: frm.attr('method'),
-			url: frm.attr('action'),
-			data: frm.serialize(),
-			success: function(res)
-			{
-				alert(res);
-			}
-		});
-		e.preventDefault();
-	});
-});
+	jQuery(document).ready(function() {
+		Contact.initMap();  
+    });
 </script>

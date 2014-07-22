@@ -19,10 +19,6 @@
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
 <!-- JS Implementing Plugins -->           
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
-<!--JS Google Map-->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/gmap/gmap.js"></script>
-<!--End JS Google Map-->
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/back-to-top.js"></script>
@@ -34,9 +30,8 @@
 	jQuery(document).ready(function() {
 		App.init();
 		App.initSliders();
-		Index.initRevolutionSlider(); 
-		Contact.initMap();  
-    });
+		Index.initRevolutionSlider();
+	});
 </script>
 <!--[if lt IE 9]>
     <script src="assets/js/respond.js"></script>

@@ -31,3 +31,9 @@
 .pagination ul li.selected a{
 	background: rgb(219, 215, 215);
 }
+.thumbnails.thumbnail-style {
+	border: solid 1px rgba(233, 228, 228, 0.37);
+}
+.row-fluid .item{
+	border: solid 1px rgba(233, 228, 228, 0.37);
+}

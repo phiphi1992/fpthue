@@ -61,6 +61,6 @@ $(document).ready(function() {
 			_heightMax = height;
 		}
 	});
-	
+	$(".news .span6").css('height',_heightMax+'px');
 });
 </script>

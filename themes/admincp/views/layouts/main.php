@@ -7,7 +7,7 @@
 			<div class="container-fluid">
 				<a href="<?php echo PIUrl::createUrl('/admin');?>" class="brand" style="padding-left:10px">
 					<small>
-						CÔNG TY CP VIỄN THÔNG FPT - CN HUẾ
+						CÔNG TY CP VIỄN THÔNG VIETTEL - CN HUẾ
 					</small>
 				</a><!--/.brand-->
 

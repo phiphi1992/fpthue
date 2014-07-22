@@ -14,6 +14,7 @@ class ProfileController extends Controller
 	 */
 	public function actionProfile()
 	{
+		$this->redirect('/admin');
 		if(isAdmin()){
 			$this->layout = '//layouts/main';
 		}
