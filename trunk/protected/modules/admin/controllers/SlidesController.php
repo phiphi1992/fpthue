@@ -69,8 +69,8 @@ class SlidesController extends Controller
 			$this->redirect(PIUrl::createUrl('/admin/slides/index/'));
 		$name = $model->attributes['image'];
 		$this->loadModel($id)->delete();
-		if(file_exists(Yii::app()->basePath.'/../upload/images/'.$name) && $name->image != '')
-			unlink(Yii::app()->basePath.'/../upload/images/'.$name);
+		if(file_exists(Yii::app()->basePath.'/upload/images/'.$name) && $name->image != '')
+			unlink(Yii::app()->basePath.'/upload/images/'.$name);
 		Yii::app()->user->setFlash('success', translate('Xóa thành công.'));
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		$this->redirect(PIUrl::createUrl('/admin/slides'));

@@ -56,15 +56,16 @@ class NewController extends Controller {
 	}
 
 	public function actionDetail($category=null,$alias=null) {
+		$categoryNew = CategoriesNews::model()->findByAttributes(array('alias'=>$category));
 		$model = News::model()->findByAttributes(array('alias'=>$alias));
-		if(empty($model)) {
+		if(empty($categoryNew) || empty($model)) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
 		$this->description = $model->description;
 		$this->pageTitle = $model->name . ' - ' . $this->dataSystem->title;
 		//Related
 		$criRelated = new CDBCriteria;
-		$criRelated->addCondition("category_news_id = 1");
+		$criRelated->addCondition("category_news_id = ".$categoryNew['id']);
 		$criRelated->addCondition("alias !=:alias");
 		$criRelated->params = array(':alias'=>$alias);
 		$criRelated->order = "id DESC";

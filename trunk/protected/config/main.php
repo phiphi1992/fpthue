@@ -10,7 +10,7 @@ require(dirname(__FILE__) . "/function_alias.php"); // Gồm các function đư�
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'CÔNG TY CP VIỄN THÔNG FPT - CN HUẾ',
+	'name'=>'CÔNG TY CP VIỄN THÔNG VIETTEL - CN HUẾ',
 	'defaultController' => 'home',
 	'theme'=>'frontend',
 	'timeZone' => 'UTC',
@@ -27,7 +27,7 @@ return array(
 		'date'=>'d/m/Y',
 		'config'=>array(
 			'description'=>'Viettel Huế',
-			'author'=>'Kovo.vn',
+			'author'=>'qtmax.com',
 			'keyword'=>'Viettel Huế',
 			'icon'=>'',
 		),
