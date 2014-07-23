@@ -26,7 +26,33 @@ class ImagesController extends Controller
 	
 	public function actionIndex()
 	{
-		$model = new Images;
+		if(!empty($_POST)){
+			$images =  CUploadedFile::getInstancesByName('images');
+			if (isset($images) && count($images) > 0) {
+				// go through each uploaded image
+				foreach ($images as $image => $pic) {
+					$model = new Images;
+					$model->scenario = 'image';
+					$imageName = $this->getFileName($pic);
+					$model->image = $imageName;
+					if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/upload/images/'.$imageName)) 
+					{
+						$model->link = $imageName;
+						$model->name = $pic->name;
+						$model->created = time();
+						$model->album_id = Images::$IMAGE_PHOTO;
+						//dump($model);
+						if($model->save())
+							Yii::app()->user->setFlash('success', translate('Thêm thành công.'));
+						else
+							dump($model->errors);
+					}
+						// handle the errors here, if you want
+				}
+				
+			}	
+			$this->redirect(PIUrl::createUrl('admin/images/index'));		
+		}
 		$criteria=new CDbCriteria();
 		$criteria->condition = 'album_id=:album_id';
 		$criteria->order = 'id DESC';
@@ -40,7 +66,7 @@ class ImagesController extends Controller
 		$listImage=Images::model()->findAll($criteria);
 		//dump($model);
 		$dataAlbums = Albums::model()->getAlbums();
-		$this->render('index',compact('model','pages','dataAlbums','listImage'));
+		$this->render('index',compact('pages','dataAlbums','listImage'));
 	}
 	
 	public function actionBanner(){
