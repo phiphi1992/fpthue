@@ -3,7 +3,7 @@
 		<div class="span8">
             <div id="map" class="map map-box map-box-space margin-bottom-40" style="height:300px;">
             </div><!---/map-->
-			<form action="default/contact/sendMail" id="formContact" method="POST"/>
+			<form action="default/contact/sendMail" id="formContact" method="POST">
                 <label>Họ tên</label>
                 <input type="text" class="span7" name="fullName" id="fullName" />
                 <label>Email <span class="color-red">*</span></label>
@@ -14,7 +14,7 @@
                 <input type="text" class="span7" name="subject" id="subject"/>
                 <label>Nội dung</label>
                 <textarea rows="8" class="span10" name="content" id="content"></textarea>
-                <p><button type="button" class="btn-u sendMail">Gửi</button></p>
+                <p><button type="text" class="btn-u sendMail">Gửi</button></p>
             </form>
         </div><!--/span9-->
 
@@ -34,8 +34,8 @@
                 <li><strong>Thứ 7:</strong> 7h30 - 11h30</li>
                 <li><strong>Chủ nhật:</strong> Nghỉ</li>
             </ul>
-        </div><!--/span3-->        
-    </div><!--/row-fluid-->        
+        </div>
+    </div>
 
 	<?php if(!empty($arrPartner)) {?>
 	<div id="clients-flexslider parter" class="flexslider home clients">
@@ -53,13 +53,71 @@
 	</div>
 	<?php }?>
 </div>
-<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery.validate.js"></script>
+
 <!--JS Google Map-->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/gmap/gmap.js"></script>
 <!--End JS Google Map-->
 <script type="text/javascript">
-	jQuery(document).ready(function() {
-		Contact.initMap();  
-    });
+$(document).ready(function() {
+	Contact.initMap();
+	/*Validation*/
+	$('.sendMail').on('click',function(){
+		$("#formContact").validate({
+			rules: {
+				fullName: {
+					required: true,
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				phone: {
+					number: true
+				},
+				subject: {
+					required: true,
+				},
+				content: {
+					required: true,
+					minlength: 10
+				},
+			},
+			messages: {
+				fullName: {
+					required: "Xin vui lòng nhập họ tên",
+				},
+				email: {
+					required: "Xin vui lòng nhập email",
+					email: "Xin vui lòng nhập đúng định dạng email"
+				},
+				phone:'Xin vui lòng nhập đúng số điện thoại',
+				subject: {
+					required: "Xin vui lòng nhập chủ đề",
+				},
+				content: {
+					required: "Xin vui lòng nhập nội dung",
+					minlength: "Nội dung cần có tối thiểu là 10 ký tự."
+				},
+			},
+			submitHandler: function (form) {
+				$.ajax({
+					url: 	webroot + form.atrr('action'),
+					data:	form.serialize(),
+					type:	form.atrr('method'),
+					success: function(result){
+						if(result == true){
+							alert("Gửi thông tin thành công!");
+							$(".formContact input").each(function(){
+								$(this).val("");
+							})
+							$(".formContact textarea").val('');
+						}
+					}
+				});
+				return false; // required to block normal submit since you used ajax
+			}
+		});
+	});
+});
 </script>

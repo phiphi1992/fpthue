@@ -15,6 +15,7 @@
 
 <!-- JS Global Compulsory -->
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/jquery.validate.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/modernizr.custom.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
 <!-- JS Implementing Plugins -->           
