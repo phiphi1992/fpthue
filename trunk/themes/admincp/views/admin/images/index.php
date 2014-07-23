@@ -14,14 +14,41 @@
 	</div>
 
 	<div class="page-content">
-		<div class="page-header position-relative">
-			<h1>
-				<?php echo translate('Hình Ảnh');?>
-			</h1>
-		</div><!--/.page-header-->
+		
 		<div class="row-fluid">
 			<div class="span12">
-			<div class="row-fluid">	
+			<div class="row-fluid">
+				<?php $form = $this->beginWidget('CActiveForm', array(
+					'id'=>'images-form',
+					'htmlOptions'=>array('class'=>'form-horizontal', 'enctype'=>'multipart/form-data'),
+				)); ?>
+				<div class="widget-box  collapsed">
+					<div class="widget-header">
+						<h4><?php echo translate('Hình Ảnh');?></h4>
+
+						<span class="widget-toolbar ">
+							<button class="btn btn-primary" data-action="collapse">
+							<i class="icon-chevron-up"></i>
+							<?php echo translate('Thêm hình ảnh');?>
+							</button>
+							<button class="btn btn-primary" type="submit">
+							<i class="icon-ok bigger-110"></i>
+							<?php echo translate('Lưu');?>
+							</button>
+						</span>
+					</div>
+
+					<div class="widget-body">
+						<div class="widget-main">
+							<input type="file" name="images[]" id="id-input-file-3" multiple='true' />
+							<label>
+								<input checked="true" type="checkbox" name="file-format" id="id-file-format" />
+								<span class="lbl"> Chỉ cho phép hình ảnh</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<?php $this->endWidget(); ?>
 				<ul class="ace-thumbnails">
 				<?php if(!empty($listImage)){ foreach($listImage as $image):?>
 					<li>

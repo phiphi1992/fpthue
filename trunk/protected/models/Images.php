@@ -17,7 +17,7 @@ class Images extends PIActiveRecord
 	public static $IMAGE_PHOTO = 2; # Hình ảnh cho thư viện hình ảnh
 	public static $IMAGE_PATNER = 3; # Hình ảnh cho đối tác
 	
-	public $image;
+	public $image ='hoang';
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,6 +38,7 @@ class Images extends PIActiveRecord
 			array('created', 'numerical', 'integerOnly'=>true),
 			array('image', 'file','types'=>'jpg, gif, png', 'maxSize'=>1024*1024*5, 'allowEmpty'=>false, 'on'=>'insert'),
 			array('image', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>1024*1024*5, 'allowEmpty'=>true, 'on'=>'update'),
+			array('image', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>1024*1024*5, 'allowEmpty'=>true, 'on'=>'image'),
 			//array('name', 'length', 'max'=>255),
 			//array('image, description', 'length', 'max'=>500),
 			//array('image', 'file', 'types'=>'jpg, gif, png', 'maxSize'=>'300000'),
@@ -55,7 +56,7 @@ class Images extends PIActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'images' => array(self::BELONGS_TO, 'Albums', 'album_id'),
+			//'images' => array(self::BELONGS_TO, 'Albums', 'album_id'),
 		);
 	}
 
