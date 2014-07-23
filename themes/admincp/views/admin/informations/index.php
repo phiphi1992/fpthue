@@ -8,13 +8,13 @@
 					<i class="icon-angle-right arrow-icon"></i>
 				</span>
 			</li>
-			<li class="active"><?php echo translate('Giới thiệu') ;?></li>
+			<li class="active"><?php echo translate('Bài viết trang chủ') ;?></li>
 		</ul><!--.breadcrumb-->					
 	</div>
 
 	<div class="page-content">
 		<div class="page-header position-relative">
-			<h1><?php echo translate('Giới thiệu');?></h1>
+			<h1><?php echo translate('Bài viết trang chủ') ;?></h1>
 		</div><!--/.page-header-->
 
 		<div class="row-fluid">
@@ -29,35 +29,9 @@
 					
 				)); ?>
 				<div class="control-group">
-					<div class="controls">
-						<img src="<?php echo getImage($model->image, 100, 100); ?>"/>
-					</div>
-				</div>
-				<div class="control-group">
-					<?php echo $form->labelEx($model,'image',array('class'=>'control-label')); ?>
-					<div class="controls">
-							<?php echo $form->fileField($model,'image',array('id'=>'id-input-file-1')); ?>
-							<?php echo $form->error($model,'image'); ?>									
-					</div>
-				</div>	
-				<div class="control-group">
-					<?php echo $form->labelEx($model,'name',array('class'=>'control-label')); ?>
-					<div class="controls">
-						<?php echo $form->textArea($model,'name',array('class'=>'span12','style'=>'height:80px')); ?>
-						<?php echo $form->error($model,'name'); ?>
-					</div>
-				</div>
-				<div class="control-group">
-					<?php echo $form->labelEx($model,'description',array('class'=>'control-label')); ?>
-					<div class="controls">
-						<?php echo $form->textArea($model,'description',array('class'=>'ckeditor')); ?>
-						<?php echo $form->error($model,'description'); ?>
-					</div>
-				</div>
-				<div class="control-group">
-					<?php echo $form->labelEx($model,'content',array('class'=>'control-label')); ?>
-					<div class="controls">
-						<?php echo $form->textArea($model,'content',array('class'=>'ckeditor')); ?>
+					
+					<div class="span12">
+						<?php echo $form->textArea($model,'content',array('id'=>'ckeditor')); ?>
 						<?php echo $form->error($model,'content'); ?>
 					</div>
 				</div>
@@ -80,6 +54,11 @@
 	</div>
 </div>
 <script>
+	$(document).ready(function(){
+		CKEDITOR.replace('ckeditor', {
+			height:500
+		});
+	});
 	$("#informations-form").submit(function(){
 		$('button[type=submit]', this).attr('disabled', 'disabled');
 	});
