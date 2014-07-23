@@ -36,10 +36,11 @@ class InformationsController extends Controller
 			}else{
 				$arr = $_POST['Informations'];
 				//array_pop($arr);
-				$model->attributes = $arr;				
+				$model->attributes = $arr;
+				$model->name = 'Bài viết trang chủ';
+				$model->description = 'Bài viết trang chủ';
 			}
 			$model->created = time();
-			$model->alias = alias($_POST['Informations']['name']);
 			if($model->save()){
 				Yii::app()->user->setFlash('success', translate('Cập nhật thành công.'));
 				if($flag == 1)

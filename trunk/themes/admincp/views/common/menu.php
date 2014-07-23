@@ -12,6 +12,12 @@
 			<span class="menu-text"> Cài đặt </span>
 		</a>
 	</li>
+	<li <?php if(curCA('controller') == 'informations' && curCA('action') == 'index') echo 'class="active"'?>>
+		<a href="<?php echo PIUrl::createUrl('/admin/informations');?>">
+			<i class="icon-text-width"></i>
+			<span class="menu-text"> Bài viết trang chủ </span>
+		</a>
+	</li>
 	<!--<li <?php if(curCA('controller') == 'informations' || curCA('controller') == 'teachers' || curCA('controller') == 'facilities') echo 'class="active"'?>>
 		<a href="#" class="dropdown-toggle">
 			<i class="icon-list"></i>
