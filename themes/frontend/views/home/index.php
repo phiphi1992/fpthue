@@ -56,20 +56,18 @@
 			<?php if(!empty($arrStore)) {?>
 			<div class="store">
 				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>"><h3>STORE</h3></a></div>
-				<ul class="thumbnails">
-					<?php foreach ($arrStore as $store) {?>
-					<li class="span3">
-						<div class="thumbnail-style thumbnail-kenburn item">
-							<div class="thumbnail-img">
-								<div class="overflow-hidden" style="height:150px;"><img src="<?php echo getImage($store['image'],250,160,0)?>" alt="<?php echo $store['name']?>" /></div>
-							</div>
-							<h5><a class="hover-effect" href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'store','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
+				<div class="row-fluid margin-bottom-10">
+					<ul class="thumbnails">
+						<?php foreach ($arrStore as $store) {?>
+						<li class="span4 thumbnail-style thumbnail-kenburn item">
+							<div class="overflow-hidden"><img src="<?php echo getImage($store['image'],260,160,0)?>" alt="" /></div>
+							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$store['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
-						</div>
-					</li>
+						</li>
 					<?php }?>
-				</ul>
+					</ul>
+				</div>
 			</div>
 			<?php }?>
 			<?php if(!empty($arrPartner)) {?>
@@ -104,8 +102,9 @@ $(document).ready(function() {
 		_internetMax =  internetHeight;
 	}
 
-	$(".internet li").css({
-		'height': _internetMax+'px'
+	$(".internet li.thumbnail-style").css({
+		'height': _internetMax+'px',
+		'border': 'solid 1px rgba(233, 228, 228, 0.37)'
 	});
 
 	/*Set height optical item*/
@@ -115,8 +114,9 @@ $(document).ready(function() {
 		_opticalMax =  opticalHeight;
 	}
 
-	$(".optical li").css({
-		'height': _opticalMax+'px'
+	$(".optical li.thumbnail-style").css({
+		'height': _opticalMax+'px',
+		'border': 'solid 1px rgba(233, 228, 228, 0.37)'
 	});
 
 	/*Set height store item*/
@@ -126,8 +126,9 @@ $(document).ready(function() {
 		_storeMax =  storeHeight;
 	}
 
-	$(".store li").css({
-		'height': _storeMax+'px'
+	$(".store li .thumbnail-style").css({
+		'height': _storeMax+'px',
+		'border': 'solid 1px rgba(233, 228, 228, 0.37)'
 	});
 });
 </script>

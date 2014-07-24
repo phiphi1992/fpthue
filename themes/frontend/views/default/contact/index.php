@@ -4,15 +4,15 @@
             <div id="map" class="map map-box map-box-space margin-bottom-40" style="height:300px;">
             </div><!---/map-->
 			<form action="default/contact/sendMail" id="formContact" method="POST">
-                <label>Họ tên</label>
+                <label>Họ tên <span class="color-red">*</span></label></label>
                 <input type="text" class="span7" name="fullName" id="fullName" />
                 <label>Email <span class="color-red">*</span></label>
                 <input type="text" class="span7" name="email" id="email"/>
                 <label>Số điện thoại</label>
                 <input type="text" class="span7" name="phone" id="phone"/>
-				<label>Chủ đề</label>
+				<label>Chủ đề <span class="color-red">*</span></label></label>
                 <input type="text" class="span7" name="subject" id="subject"/>
-                <label>Nội dung</label>
+                <label>Nội dung <span class="color-red">*</span></label></label>
                 <textarea rows="8" class="span10" name="content" id="content"></textarea>
                 <p><button type="text" class="btn-u sendMail">Gửi</button></p>
             </form>
