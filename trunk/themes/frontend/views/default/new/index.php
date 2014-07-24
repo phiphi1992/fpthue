@@ -47,7 +47,8 @@
 		<?php $this->renderPartial('//common/right',array(
 			'arrNews'=>$arrNews,
 			'arrSystem'=>$arrSystem,
-			'arrSupport'=>$arrSupport
+			'arrSupport'=>$arrSupport,
+			'arrPic'=>$arrPic
 		));?>
 	</div>
 </div>

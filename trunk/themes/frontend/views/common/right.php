@@ -52,16 +52,16 @@
 	</div>
 	<!-- End -->
 	<!--Pictures slide-->
+	<?php if(!empty($arrPic)) {?>
 	<div class="pictures">
 		<div class="headline"><h3>Hình ảnh</h3></div>
 		<div id="myCarousel" class="carousel slide">
-			<div class="carousel-inner" style="height: 200px;">
-				<div class="item active">
-					<img src="assets/img/common/hue_1.jpg" alt="" width="300" />
+			<div class="carousel-inner">
+				<?php foreach ($arrPic as $key=>$pic) {?>
+				<div class="item <?php echo $key==0 ? 'active': '';?>">
+					<img src="<?php echo getImage($pic['image'],270,250,0)?>"/>
 				</div>
-				<div class="item">
-					<img src="assets/img/common/hue_2.jpg" alt="" width="300" />
-				</div>
+				<?php }?>
 			</div>
 			<div class="carousel-arrow">
 				<a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="icon-angle-left"></i></a>
@@ -69,6 +69,7 @@
 			</div>
 		</div>
 	</div>
+	<?php }?>
 	<!--End Pictures slide-->
 	<!-- Fan Facebok -->
 	<div class="fanpage">

@@ -57,12 +57,19 @@ class HomeController extends Controller
 		$criSupport->order = "id DESC";
 		$arrSupport = Supports::model()->findAll($criSupport);
 
-		/*Add Right*/
+		/*Ads Right*/
 		$criAds = new CDbCriteria();
 		$criAds->addCondition("album_id = 1");
 		$criAds->order = "id DESC";
 		$criAds->limit = 2;
 		$arrAds = Images::model()->findAll($criAds);
+
+		/*Pictures*/
+		$criPic = new CDbCriteria();
+		$criPic->addCondition("album_id = 2");
+		$criPic->order = "id DESC";
+		$criPic->limit = 10;
+		$arrPic = Images::model()->findAll($criPic);
 
 		/*Slider*/
 		$criBanner = new CDbCriteria();
@@ -78,7 +85,8 @@ class HomeController extends Controller
 			'arrPartner'=>$arrPartner,
 			'arrNews'=>$arrNews,
 			'arrSupport'=> $arrSupport,
-			'arrAds'=>$arrAds
+			'arrAds'=>$arrAds,
+			'arrPic'=>$arrPic
 		));
 	}
 }
