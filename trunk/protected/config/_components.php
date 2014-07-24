@@ -98,8 +98,8 @@ return array(
 		'transportType'=>'smtp', /// case sensitive!
 		'transportOptions'=>array(
 			'host'=>'smtp.gmail.com',
-			'username' => 'orishop.biz@gmail.com',
-			'password' => 'muadonglanhgia',
+			'username' => 'ndhungvu@gmail.com',
+			'password' => 'hungvutink31c',
 			'port'=>'465',
 			'encryption'=>'ssl',
 		),

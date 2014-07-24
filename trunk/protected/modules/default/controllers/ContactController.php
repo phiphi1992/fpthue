@@ -23,16 +23,32 @@ class ContactController extends Controller {
 
 	public function actionSendMail() {
 		if(!empty($_POST)) {
-			dump($_POST);
-			$mailer = Yii::createComponent('application.extensions.mailer.EMailer');
-			$mailer->Host = 'smtp.gmail.com';
-			$mailer->IsSMTP();
-			$mailer->From = $_POST['email'];
-			$mailer->FromName = 'Support';
-			$mailer->CharSet = 'UTF-8';
-			$mailer->Subject = $_POST['subject'];
-			$mailer->Body = $_POST['content'];
-			$mailer->Send();
+			$message = new YiiMailMessage;
+			$message->setBody($_POST['content']);
+			$message->subject = $_POST['subject'];
+			$message->from = $_POST['email'];
+			$message->to = Yii::app()->params['adminEmail'];
+
+			if(Yii::app()->mail->send($message)) {
+				$model = new Comments();
+				$model->title = $_POST['subject'];
+				$model->content = $_POST['content'];
+				$model->email = $_POST['email'];
+				$model->name = $_POST['fullName'];
+				$model->phone = $_POST['phone'];
+				$model->created = time();
+				if($model->save()) {
+					json_encode(array(
+						'error'=>false,
+						'message'=>'Cảm ơn bạn đã gửi thông tin, chúng tôi sẽ phản hồi cho bạn trong thời gian sớm nhất!'
+					));
+				}else {
+					json_encode(array(
+						'error'=>true,
+						'message'=>'Gửi thông tin không thành công'
+					));
+				}
+			}
 		}
 	}
 }

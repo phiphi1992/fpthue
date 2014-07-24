@@ -102,16 +102,19 @@ $(document).ready(function() {
 			},
 			submitHandler: function (form) {
 				$.ajax({
-					url: 	webroot + form.atrr('action'),
+					url: 	'',
 					data:	form.serialize(),
 					type:	form.atrr('method'),
-					success: function(result){
-						if(result == true){
-							alert("Gửi thông tin thành công!");
+					dataType: 'JSON',
+					success: function(res){
+						if(res.error != true){
+							alert(res.message);
 							$(".formContact input").each(function(){
 								$(this).val("");
 							})
 							$(".formContact textarea").val('');
+						}else {
+							alert(res.message);
 						}
 					}
 				});
