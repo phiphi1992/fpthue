@@ -36,6 +36,13 @@ class NewController extends Controller {
 		$arrSupport = Supports::model()->findAll($criSupport);
 		$this->pageTitle = $this->pageTitle = $category->name . ' - ' . $this->dataSystem->title;
 
+		/*Pictures*/
+		$criPic = new CDbCriteria();
+		$criPic->addCondition("album_id = 2");
+		$criPic->order = "id DESC";
+		$criPic->limit = 10;
+		$arrPic = Images::model()->findAll($criPic);
+
 		/*Slider*/
 		$criBanner = new CDbCriteria();
 		$criBanner->order = "id DESC";
@@ -51,7 +58,8 @@ class NewController extends Controller {
 			'category'=>$category,
 			'arrNews'=>$arrNews,
 			'arrSystem'=>$arrSystem,
-			'arrSupport'=>$arrSupport
+			'arrSupport'=>$arrSupport,
+			'arrPic'=>$arrPic
 		));
 	}
 
@@ -83,7 +91,14 @@ class NewController extends Controller {
 		$criSystem = new CDbCriteria();
 		$criSystem->order = "id DESC";
 		$arrSystem = System::model()->find($criSystem);
-		
+
+		/*Pictures*/
+		$criPic = new CDbCriteria();
+		$criPic->addCondition("album_id = 2");
+		$criPic->order = "id DESC";
+		$criPic->limit = 10;
+		$arrPic = Images::model()->findAll($criPic);
+
 		//Support
 		$criSupport = new CDbCriteria();
 		$criSupport->order = "id DESC";
@@ -93,7 +108,8 @@ class NewController extends Controller {
 			'arrRelated'=>$arrRelated,
 			'arrNews'=>$arrNews,
 			'arrSystem'=>$arrSystem,
-			'arrSupport'=>$arrSupport
+			'arrSupport'=>$arrSupport,
+			'arrPic'=>$arrPic
 		));
 	}
 }

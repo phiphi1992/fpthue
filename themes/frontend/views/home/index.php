@@ -89,7 +89,8 @@
 		<?php $this->renderPartial('//common/right',array(
 			'arrNews'=>$arrNews,
 			'arrSupport'=>$arrSupport,
-			'arrAds'=>$arrAds
+			'arrAds'=>$arrAds,
+			'arrPic'=>$arrPic
 		));?>
 	</div>
 </div>
