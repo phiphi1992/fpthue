@@ -52,7 +52,7 @@
 	</div>
 	<!-- End -->
 	<!--Pictures slide-->
-	<!-- <div class="pictures">
+	<div class="pictures">
 		<div class="headline"><h3>Hình ảnh</h3></div>
 		<div id="myCarousel" class="carousel slide">
 			<div class="carousel-inner" style="height: 200px;">

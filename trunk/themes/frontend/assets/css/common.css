@@ -31,12 +31,6 @@
 .pagination ul li.selected a{
 	background: rgb(219, 215, 215);
 }
-.thumbnails .thumbnail-style {
-	border: solid 1px rgba(233, 228, 228, 0.37);
-}
-.row-fluid .thumbnail-style{
-	border: solid 1px rgba(233, 228, 228, 0.37);
-}
 h1, h2, h3, h4, h5 {
 	color : #3909D1;
 }

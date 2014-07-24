@@ -15,6 +15,7 @@ class DefaultController extends Controller
 	}
 	
 	public function actionIndex(){
+		$this->pageTitle = $this->dataSystem->title;
 		$criteriaComments = new CDbCriteria;
 		$criteriaComments->limit = 10;
 		$criteriaComments->order = "id DESC";

@@ -7,6 +7,7 @@
 <link href="<?php echo Yii::app()->theme->baseUrl;?>/assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/css/font-awesome.min.css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+<link rel="shortcut icon" href="/themes/frontend/img/front/viettel_favicon.ico">
 
 <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/css/jquery-ui-1.10.3.custom.min.css" />
 <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl;?>/assets/css/jquery.gritter.css" />
