@@ -52,6 +52,13 @@ class HomeController extends Controller
 		$criSimCard->limit = 3;
 		$arrSimCard = News::model()->findAll($criSimCard);
 
+		//TV
+		$criTv = new CDBCriteria;
+		$criTv->addCondition("category_news_id = 7");
+		$criTv->order = "id DESC";
+		$criTv->limit = 3;
+		$arrTv = News::model()->findAll($criTv);
+
 		//News
 		$criNew = new CDBCriteria;
 		$criNew->addCondition("category_news_id = 5");
@@ -91,6 +98,7 @@ class HomeController extends Controller
 			'arrStore'=> $arrStore,
 			'arrCa'=>$arrCa,
 			'arrSimCard'=>$arrSimCard,
+			'arrTv'=>$arrTv,
 			'arrNews'=>$arrNews,
 			'arrSupport'=> $arrSupport,
 			'arrAds'=>$arrAds,

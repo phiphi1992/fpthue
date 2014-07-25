@@ -50,14 +50,25 @@
 <div class="header">
 	<div class="container"> 
 		<!-- Logo -->
-		<a href="<?php echo PIUrl::createUrl('/home/index');?>"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo"/ style="height:40px;"></a>
+		<div class="span12" style="margin-left:0px;">
+			<a href="<?php echo PIUrl::createUrl('/home/index');?>"><img id="logo-header" src="<?php echo Yii::app()->theme->baseUrl;?>/img/front/viettel_logo.png" width="100" alt="Logo" style="height:50px;"></a>
+			<ul class="loginbar pull-right">
+				<?php if($this->dataSystem['hotline']) {?>
+				<li><i class="icon-phone-sign"></i> <?php echo $this->dataSystem['hotline'];?> <?php echo !empty($this->dataSystem['phone']) ?'- '.$this->dataSystem['phone'] : ''?></li>
+				<?php }?>
+				<?php if($this->dataSystem['email']) {?>
+				<li class="devider">&nbsp;</li>
+				<li><i class="icon-envelope-alt"></i> <?php echo $this->dataSystem['email'];?></li>
+				<?php }?>
+			</ul>
+		</div>
 		<!-- Menu -->
 		<div class="navbar">
 			<div class="navbar-inner">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					 <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</a><!-- /nav-collapse -->
                 <div class="nav-collapse collapse">
                 	<?php 
@@ -75,6 +86,9 @@
                         </li>
 						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-cap-quang') || $category == strtolower('dang-ky-cap-quang')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>">Đăng Ký Cáp Quang</a>
+                        </li>
+                        <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') || $category == strtolower('truyen-hinh')) ? 'active' : '' ?>">
+                            <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'truyen-hinh'));?>">Truyền Hình</a>
                         </li>
                         <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') || $category == strtolower('store')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>">Store</a>
