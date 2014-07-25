@@ -15,22 +15,14 @@
 		<div class="row-fluid margin-bottom-20">
 			<?php echo $model['content'];?>
 		</div>
-		<div class="facebook_like_share">
-			<div class="fb-like" style="float:left; margin-right:30px;" data-href="https://www.facebook.com/pages/Viettel-Telecom-Hu%E1%BA%BF/600489353403220" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-			<div class="twitter_googleplus">
-			<?php $this->widget('application.extensions.social.social', array(
-				'style'=>'horizontal', 
-				'networks' => array(
-					'twitter'=>array(
-						'data-via'=>'', //http://twitter.com/#!/YourPageAccount if exists else leave empty
-					),
-					'googleplusone'=>array(
-						"size"=>"medium",
-						"annotation"=>"bubble",
-					)
-				)
-			));?>
-			</div>
+		<div class="facebook_like_share" style="float: left; margin-right: 10px;">
+			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/<?php echo Yii::app()->getBaseUrl(true).$_SERVER['REQUEST_URI']; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+			<div class="fb-share-button" data-href="<?php echo Yii::app()->getBaseUrl(true).$_SERVER['REQUEST_URI']; ?>" data-type="button_count"></div>
+		</div>
+		<div class="twitter_googleplus">
+			<link rel="canonical" href="<?php echo Yii::app()->getBaseUrl(true).$_SERVER['REQUEST_URI']; ?>" />
+			<g:plusone></g:plusone>
+			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 		</div>
 		<div class="facebook_comment">
 			<h4 class="color-green">Bình luận</h4>

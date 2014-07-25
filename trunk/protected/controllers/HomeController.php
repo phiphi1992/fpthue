@@ -35,15 +35,22 @@ class HomeController extends Controller
 		$criStore = new CDBCriteria;
 		$criStore->addCondition("category_news_id = 6");
 		$criStore->order = "id DESC";
-		$criStore->limit = 6;
+		$criStore->limit = 3;
 		$arrStore = News::model()->findAll($criStore);
 
-		//partner
-		$criPartner = new CDbCriteria();
-		$criPartner->addCondition("album_id = 3");
-		$criPartner->order = "id DESC";
-		$criPartner->limit = 10;
-		$arrPartner = Images::model()->findAll($criPartner);
+		//CA
+		$criCa = new CDBCriteria;
+		$criCa->addCondition("category_news_id = 3");
+		$criCa->order = "id DESC";
+		$criCa->limit = 3;
+		$arrCa = News::model()->findAll($criCa);
+
+		//Sim - Card
+		$criSimCard = new CDBCriteria;
+		$criSimCard->addCondition("category_news_id = 4");
+		$criSimCard->order = "id DESC";
+		$criSimCard->limit = 3;
+		$arrSimCard = News::model()->findAll($criSimCard);
 
 		//News
 		$criNew = new CDBCriteria;
@@ -82,7 +89,8 @@ class HomeController extends Controller
 			'arrInternet' => $arrInternet,
 			'arrOptical'=> $arrOptical,
 			'arrStore'=> $arrStore,
-			'arrPartner'=>$arrPartner,
+			'arrCa'=>$arrCa,
+			'arrSimCard'=>$arrSimCard,
 			'arrNews'=>$arrNews,
 			'arrSupport'=> $arrSupport,
 			'arrAds'=>$arrAds,
