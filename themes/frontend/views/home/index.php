@@ -47,6 +47,24 @@
 			</div>
 			<?php }?>
 
+			<?php  if(!empty($arrTv)) {?>
+			<div class="ca">
+				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'truyen-hinh'));?>"><h3>Truyền hình</h3></a></div>
+				<div class="row-fluid margin-bottom-10">
+					<ul class="thumbnails">
+						<?php foreach ($arrTv as $tv) {?>
+						<li class="span4 thumbnail-style thumbnail-kenburn item">
+							<div class="overflow-hidden"><img src="<?php echo getImage($tv['image'],260,160,0)?>" alt="" /></div>
+							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'truyen-hinh','alias'=>$tv['alias']));?>"><strong><?php echo $tv['name']?></strong></a></h5>
+							<i class="icon-time"></i> <?php echo date('d/m/Y',$tv['created']);?> | <i class="icon-user-md"></i> Admin
+							<p><i><?php echo word_limiter($tv['description'],20)?></i></p>
+						</li>
+					<?php }?>
+					</ul>
+				</div>
+			</div>
+			<?php }?>
+
 			<!--Quảng cáo ngang-->
 			<div class="row-fluid margin-bottom-10">
 				<div class="span12" style="text-align: center;">
