@@ -3,7 +3,7 @@
 		<div class="span8">
             <div id="map" class="map map-box map-box-space margin-bottom-40" style="height:300px;">
             </div><!---/map-->
-			<form action="default/contact/sendMail" id="formContact" method="POST">
+			<form action="" id="formContact" method="POST">
                 <label>Họ tên <span class="color-red">*</span></label></label>
                 <input type="text" class="span7" name="fullName" id="fullName" />
                 <label>Email <span class="color-red">*</span></label>
@@ -14,7 +14,7 @@
                 <input type="text" class="span7" name="subject" id="subject"/>
                 <label>Nội dung <span class="color-red">*</span></label></label>
                 <textarea rows="8" class="span10" name="content" id="content"></textarea>
-                <p><button type="text" class="btn-u sendMail">Gửi</button></p>
+                <p><button class="btn-u sendMail">Gửi</button></p>
             </form>
         </div><!--/span9-->
 
@@ -101,12 +101,14 @@ $(document).ready(function() {
 				},
 			},
 			submitHandler: function (form) {
+				
 				$.ajax({
-					url: 	'',
-					data:	form.serialize(),
-					type:	form.atrr('method'),
+					url : 'default/contact/sendMail',
+					type: "POST",
 					dataType: 'JSON',
-					success: function(res){
+					data : $("#formContact").serialize(),
+					success:function(res)
+					{
 						if(res.error != true){
 							alert(res.message);
 							$(".formContact input").each(function(){
@@ -116,6 +118,10 @@ $(document).ready(function() {
 						}else {
 							alert(res.message);
 						}
+					},
+					error: function(jqXHR, textStatus, errorThrown)
+					{
+						alert(errorThrown);
 					}
 				});
 				return false; // required to block normal submit since you used ajax

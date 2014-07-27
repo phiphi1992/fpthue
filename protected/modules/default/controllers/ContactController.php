@@ -23,12 +23,13 @@ class ContactController extends Controller {
 
 	public function actionSendMail() {
 		if(!empty($_POST)) {
+			Yii::import('ext.yii-mail.YiiMailMessage');
 			$message = new YiiMailMessage;
 			$message->setBody($_POST['content']);
 			$message->subject = $_POST['subject'];
 			$message->from = $_POST['email'];
 			$message->to = Yii::app()->params['adminEmail'];
-
+			
 			if(Yii::app()->mail->send($message)) {
 				$model = new Comments();
 				$model->title = $_POST['subject'];
@@ -38,16 +39,21 @@ class ContactController extends Controller {
 				$model->phone = $_POST['phone'];
 				$model->created = time();
 				if($model->save()) {
-					json_encode(array(
+					return jsonOut(array(
 						'error'=>false,
 						'message'=>'Cảm ơn bạn đã gửi thông tin, chúng tôi sẽ phản hồi cho bạn trong thời gian sớm nhất!'
 					));
 				}else {
-					json_encode(array(
+					return json_encode(array(
 						'error'=>true,
-						'message'=>'Gửi thông tin không thành công'
+						'message'=>'Lỗi hệ thống, gửi thông tin không thành công.'
 					));
 				}
+			}else {
+				return json_encode(array(
+					'error'=>true,
+					'message'=>'Gửi thông tin không thành công'
+				));
 			}
 		}
 	}

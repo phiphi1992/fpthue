@@ -6,7 +6,7 @@
 	<!--=== End Slider ===-->
 	<div class="container">
 		<?php if(!empty($this->dataSystem['marquee']) && $this->dataSystem['marquee'] != '') {?>
-		<div class="row-fluid purchase margin-bottom-10">
+		<div class="row-fluid purchase">
 			<strong style="color: red; text-align: center; font-size: 16px;"><marquee SCROLLDELAY=50><?php echo $this->dataSystem['marquee'];?></marquee></strong>
 		</div>
 		<?php }?>
@@ -32,7 +32,7 @@
 			<?php  if(!empty($arrOptical)) {?>
 			<div class="optical">
 				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>"><h3>ĐĂNG KÝ CÁP QUANG</h3></a></div>
-				<div class="row-fluid margin-bottom-10">
+				<div class="row-fluid">
 					<ul class="thumbnails">
 						<?php foreach ($arrOptical as $optical) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
@@ -48,9 +48,9 @@
 			<?php }?>
 
 			<?php  if(!empty($arrTv)) {?>
-			<div class="ca">
+			<div class="tv">
 				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'truyen-hinh'));?>"><h3>Truyền hình</h3></a></div>
-				<div class="row-fluid margin-bottom-10">
+				<div class="row-fluid">
 					<ul class="thumbnails">
 						<?php foreach ($arrTv as $tv) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
@@ -66,7 +66,7 @@
 			<?php }?>
 
 			<!--Quảng cáo ngang-->
-			<div class="row-fluid margin-bottom-10">
+			<div class="row-fluid">
 				<div class="span12" style="text-align: center;">
 					<a href="#"><img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/common/quangcao_2.gif" alt="Quảng cáo"/></a>
 				</div>
@@ -92,9 +92,9 @@
 			<?php }?>
 
 			<?php  if(!empty($arrSimCard)) {?>
-			<div class="ca">
+			<div class="simCard">
 				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'sim-card'));?>"><h3>Sim Card</h3></a></div>
-				<div class="row-fluid margin-bottom-10">
+				<div class="row-fluid">
 					<ul class="thumbnails">
 						<?php foreach ($arrSimCard as $simCard) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
@@ -112,7 +112,7 @@
 			<?php if(!empty($arrStore)) {?>
 			<div class="store">
 				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'store'));?>"><h3>STORE</h3></a></div>
-				<div class="row-fluid margin-bottom-10">
+				<div class="row-fluid">
 					<ul class="thumbnails">
 						<?php foreach ($arrStore as $store) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
@@ -138,63 +138,77 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	/*Set height internet item*/
-	var max = 250;
-	var _internetMax = max;
-	var internetHeight = $(".internet ul").height();
-	if(internetHeight > _internetMax) {
-		_internetMax =  internetHeight;
-	}
+	setTimeout(function() {
+		var max = 250;
+		var _internetMax = max;
+		var internetHeight = $(".internet ul").height();
+		if(internetHeight > _internetMax) {
+			_internetMax =  internetHeight;
+		}
 
-	$(".internet li.thumbnail-style").css({
-		'height': _internetMax+'px',
-		'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
-	});
+		$(".internet li.thumbnail-style").css({
+			'height': (_internetMax-20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
 
-	/*Set height optical item*/
-	var _opticalMax = max;
-	var opticalHeight = $(".optical ul").height();
-	if(opticalHeight > _opticalMax) {
-		_opticalMax =  opticalHeight;
-	}
+		/*Set height optical item*/
+		var _opticalMax = max;
+		var opticalHeight = $(".optical ul").height();
+		if(opticalHeight > _opticalMax) {
+			_opticalMax =  opticalHeight;
+		}
 
-	$(".optical li.thumbnail-style").css({
-		'height': _opticalMax+'px',
-		'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
-	});
+		$(".optical li.thumbnail-style").css({
+			'height': (_opticalMax -20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
 
-	/*Set height ca item*/
-	var _simCardMax = max;
-	var simCardHeight = $(".simCard ul").height();
-	if(simCardHeight > _simCardMax) {
-		_simCardMax =  simCardHeight;
-	}
+		/*Set height tv item*/
+		var _tvMax = max;
+		var tvHeight = $(".tv ul").height();
+		if(tvHeight > _tvMax) {
+			_tvMax =  tvHeight;
+		}
 
-	$(".simCard li.thumbnail-style").css({
-		'height': _caMax+'px',
-		'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
-	});
+		$(".tv li.thumbnail-style").css({
+			'height': (_tvMax-20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
 
-	/*Set height sim card item*/
-	var _caMax = max;
-	var caHeight = $(".ca ul").height();
-	if(caHeight > _caMax) {
-		_caMax =  caHeight;
-	}
+		/*Set height ca item*/
+		var _caMax = max;
+		var caHeight = $(".ca ul").height();
+		if(caHeight > _caMax) {
+			_caMax =  caHeight;
+		}
 
-	$(".ca li.thumbnail-style").css({
-		'height': _caMax+'px',
-		'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
-	});
-	/*Set height store item*/
-	var _storeMax = max;
-	var storeHeight = $(".store ul").height();
-	if(storeHeight > _storeMax) {
-		_storeMax =  storeHeight;
-	}
+		$(".ca li.thumbnail-style").css({
+			'height': (_caMax-20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
 
-	$(".store li.thumbnail-style").css({
-		'height': _storeMax+'px',
-		'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
-	});
+		/*Set height sim card item*/
+		var _simCardMax = max;
+		var simCardHeight = $(".simCard ul").height();
+		if(simCardHeight > _simCardMax) {
+			_simCardMax =  simCardHeight;
+		}
+
+		$(".simCard li.thumbnail-style").css({
+			'height': (_simCardMax -20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
+		/*Set height store item*/
+		var _storeMax = max;
+		var storeHeight = $(".store ul").height();
+		if(storeHeight > _storeMax) {
+			_storeMax =  storeHeight;
+		}
+
+		$(".store li.thumbnail-style").css({
+			'height': (_storeMax - 20)+'px',
+			'border': 'solid 1px rgba(173, 172, 172, 0.368627)'
+		});
+	}, 1000);
 });
 </script>

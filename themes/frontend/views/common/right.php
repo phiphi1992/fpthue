@@ -45,10 +45,8 @@
 	<?php }?>
 	<!-- End Ads -->
 	<!-- Vide0 -->
-	<div  style="text-align: center; margin-left:-30px;">
-		<figure class="embed-section">
-			<iframe src="https://player.vimeo.com/video/53111938" width="250" height="200"></iframe>
-		</figure>
+	<div  class="row-fluid margin-bottom-10" style="text-align:center;">
+		<iframe src="https://player.vimeo.com/video/53111938" width="270" height="200"></iframe>
 	</div>
 	<!-- End -->
 	<!--Pictures slide-->
