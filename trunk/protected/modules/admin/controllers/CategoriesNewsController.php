@@ -58,7 +58,7 @@ class CategoriesNewsController extends Controller
 			if($model->save())
 			{
 				Yii::app()->user->setFlash('success', translate('Cập nhập thành công.'));
-				$this->redirect(PIUrl::createUrl('/admin/categoriesNews/index'));
+				$this->redirect(PIUrl::createUrl('/admin/news',array('id'=>$id)));
 			}
 		}
 		
