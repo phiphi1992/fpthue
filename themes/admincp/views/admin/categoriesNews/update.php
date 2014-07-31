@@ -16,7 +16,7 @@
 	<div class="page-content">
 		<div class="page-header position-relative">
 			<h1>
-				<?php echo translate('Cập nhập danh mục tin tức');?>
+				<?php echo translate('Cập nhập danh mục bài viết');?>
 			</h1>
 		</div><!--/.page-header-->
 		<div class="row-fluid">
@@ -33,8 +33,24 @@
 					<div class="control-group">
 						<?php echo $form->labelEx($model,'name',array('class'=>'control-label')); ?>
 						<div class="controls">
-							<?php echo $form->textField($model,'name',array('placeholder'=>'Tên danh mục tin')); ?>
+							<?php echo $form->textField($model,'name',array('placeholder'=>'Tên danh mục bài viết', 'class'=>'span12','readonly'=>true)); ?>
 							<?php echo $form->error($model,'name'); ?>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<?php echo $form->labelEx($model,'keyword',array('class'=>'control-label')); ?>
+						<div class="controls">
+							<?php echo $form->textArea($model,'keyword',array('placeholder'=>'Từ khóa', 'class'=>'span12')); ?>
+							<?php echo $form->error($model,'keyword'); ?>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<?php echo $form->labelEx($model,'description',array('class'=>'control-label')); ?>
+						<div class="controls">
+							<?php echo $form->textArea($model,'description',array('placeholder'=>'Mô tả từ khóa', 'class'=>'span12')); ?>
+							<?php echo $form->error($model,'description'); ?>
 						</div>
 					</div>
 

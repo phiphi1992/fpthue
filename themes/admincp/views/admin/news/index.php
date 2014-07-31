@@ -20,9 +20,13 @@
 		<div class="row-fluid">
 			<div class="span12">
 			<a href="<?php echo PIUrl::createUrl('/admin/news/create/', array('id'=>$id));?>" class="btn btn-primary">
-							<i class="icon-ok bigger-110"></i>
-							<?php echo translate('Thêm');?>
-						</a>
+				<i class="icon-ok bigger-110"></i>
+				<?php echo translate('Thêm bài viết');?>
+			</a>
+			<a href="<?php echo PIUrl::createUrl('admin/categoriesNews/update', array('id'=>$id));?>" class="btn btn-purple">
+				<i class="icon-ok bigger-110"></i>
+				<?php echo translate('Cập nhật từ khóa');?>
+			</a>
 			
 			<form method="post">
 				<!--PAGE CONTENT BEGINS-->
