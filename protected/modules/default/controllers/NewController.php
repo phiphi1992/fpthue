@@ -8,6 +8,10 @@ class NewController extends Controller {
 		if($category===null) {
 			throw new CHttpException(404,'Không tìm thấy trang');
 		}
+		$this->pageTitle = $category->name . ($category->title ? ' - '.$category->title : '');
+		$this->description = $category->description;
+		$this->dataSystem->keyword = $category->keyword;
+
 		$criteria = new CDbCriteria();
 		$criteria->addCondition("category_news_id = ".$category['id']);
 		$criteria->order = "id DESC";
@@ -34,7 +38,6 @@ class NewController extends Controller {
 		$criSupport = new CDbCriteria();
 		$criSupport->order = "id DESC";
 		$arrSupport = Supports::model()->findAll($criSupport);
-		$this->pageTitle = $this->pageTitle = $category->name . ' - ' . $this->dataSystem->title;
 
 		/*Pictures*/
 		$criPic = new CDbCriteria();
@@ -69,8 +72,10 @@ class NewController extends Controller {
 		if(empty($categoryNew) || empty($model)) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
-		$this->description = $model->description;
-		$this->pageTitle = $model->name . ' - ' . $this->dataSystem->title;
+		$this->pageTitle = $model->name . ($categoryNew->title ? ' - '.$categoryNew->title : '');
+		$this->description = $model->description;		
+		$this->dataSystem->keyword = $categoryNew->keyword;
+
 		//Related
 		$criRelated = new CDBCriteria;
 		$criRelated->addCondition("category_news_id = ".$categoryNew['id']);

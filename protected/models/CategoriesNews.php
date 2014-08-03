@@ -30,10 +30,10 @@ class CategoriesNews extends PIActiveRecord
 			array('name, alias', 'required', 'message'=>'{attribute} không được trống'),
 			array('created', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
-			array('keyword, description', 'length', 'max'=>1024),
+			array('title, keyword, description', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, alias, name, created, keyword, description', 'safe', 'on'=>'search'),
+			array('id, alias, name, created, title, keyword, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +57,7 @@ class CategoriesNews extends PIActiveRecord
 			'id' => 'Số thứ tự',
 			'alias' => 'Alias',
 			'name' => 'Tên danh mục bài viết',
+			'title'=> 'Tiêu đề',
 			'keyword' => 'Từ khóa',
 			'description' => 'Mô tả từ khóa',
 			'created' => 'Ngày đăng',
@@ -84,6 +85,7 @@ class CategoriesNews extends PIActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('alias',$this->alias,true);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('title',$this->name,true);
 		$criteria->compare('keyword',$this->keyword,true);
 		$criteria->compare('description',$this->description,true);
 		//$criteria->compare('created',$this->created);

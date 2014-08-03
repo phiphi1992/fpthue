@@ -39,6 +39,14 @@
 					</div>
 
 					<div class="control-group">
+						<?php echo $form->labelEx($model,'title',array('class'=>'control-label')); ?>
+						<div class="controls">
+							<?php echo $form->textArea($model,'title',array('placeholder'=>'Tiêu đề', 'class'=>'span12')); ?>
+							<?php echo $form->error($model,'title'); ?>
+						</div>
+					</div>
+
+					<div class="control-group">
 						<?php echo $form->labelEx($model,'keyword',array('class'=>'control-label')); ?>
 						<div class="controls">
 							<?php echo $form->textArea($model,'keyword',array('placeholder'=>'Từ khóa', 'class'=>'span12')); ?>
