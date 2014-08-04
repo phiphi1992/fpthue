@@ -3,7 +3,7 @@
 	height: 65px;
 }
 .support h5 {
-	padding: 10px 0px 0px 50px;
+	padding: 8px 0px 0px 55px;
 	color: rgb(247, 5, 5);
 	margin-bottom: -10px;
 }
@@ -12,6 +12,8 @@
 	color : rgb(34, 34, 207);
 	font-size: 18px;
 	margin-top: 0px;
+	margin-left: 10px;
+	font-size: 22px;
 }
 .hotline {
 	background: url(../img/common/hotline.png) left center no-repeat;
@@ -21,8 +23,8 @@
 	color: #FFF;
 	font-weight: bold;
 	font-size: 22px;
-	margin-top: 15px;
-	margin-left: 55px;
+	margin-top: 10px;
+	margin-left: 70px;
 	display: inline-block;
 }
 .fanpage{display: block;height: 250px;width: 100%;z-index: 99999;top:0%;}
