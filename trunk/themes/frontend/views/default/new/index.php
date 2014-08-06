@@ -13,12 +13,12 @@
 		<div class="span9" style="margin-left: 0px;">
 			<?php if(!empty($model)) {?>
 			<div class="news">
-				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>$category['alias']));?>"><h3><?php echo $category['name'];?></h3></a></div>
+				<div class="headline"><a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>strtolower($category['alias'])));?>"><h3><?php echo $category['name'];?></h3></a></div>
 				<div class="row-fluid margin-bottom-10">
 					<?php foreach ($model as $new) {?>
 					<div class="span6 item" style="margin-left:5px;">
-						<img class="pull-left lft-img-margin" src="<?php echo getImage($new['image'],150,90,0)?>" alt="" />
-						<h5><strong><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>$category['alias'],'alias'=>$new['alias']));?>"><?php echo $new['name'];?></a></strong></h5>
+						<a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>strtolower($category['alias']),'alias'=>$new['alias']));?>"><img class="pull-left lft-img-margin" src="<?php echo getImage($new['image'],150,90,0)?>" alt="" /></a>
+						<h5><strong><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>strtolower($category['alias']),'alias'=>$new['alias']));?>"><?php echo $new['name'];?></a></strong></h5>
 						<i class="icon-time"></i> <?php echo date('d/m/Y',$new['created']);?> | <i class="icon-user-md"></i> Admin
 						<p><i><?php echo word_limiter($new['description'],20)?></i></p>
 					</div>
@@ -55,13 +55,16 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	/*Set height internet item*/
-	var _heightMax = 0;
-	$(".news .span6").each(function(){
-		var height = $(this).height();
-		if(height > _heightMax){
-			_heightMax = height;
-		}
-	});
-	$(".news .span6").css('height',_heightMax+'px');
+	setTimeout(function() {
+		var _heightMax = 100;
+		$(".news .item").each(function(){
+			var height = $(this).height();
+			if(height > _heightMax){
+				_heightMax = height;
+			}
+		});
+		$(".news .item").css('height',_heightMax+'px');
+	}, 1000);
+	
 });
 </script>

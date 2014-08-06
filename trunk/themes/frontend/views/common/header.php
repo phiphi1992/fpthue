@@ -87,7 +87,7 @@
 						<li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='dang-ky-cap-quang') || $category == strtolower('dang-ky-cap-quang')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'dang-ky-cap-quang'));?>">Đăng Ký Cáp Quang</a>
                         </li>
-                        <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') || $category == strtolower('truyen-hinh')) ? 'active' : '' ?>">
+                        <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='truyen-hinh') || $category == strtolower('truyen-hinh')) ? 'active' : '' ?>">
                             <a href="<?php echo PIUrl::createUrl('/default/new/index',array('alias'=>'truyen-hinh'));?>">Truyền Hình</a>
                         </li>
                         <li class ="<?php echo ((!empty($this->module) && $this->module->id == 'default' && Yii::app()->controller->id == 'new' && $alias =='store') || $category == strtolower('store')) ? 'active' : '' ?>">

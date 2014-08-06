@@ -2,11 +2,11 @@
 <div class="footer">
 	<div class="container">
 		<div class="row-fluid">
-			<div class="span10">
-				<p>2013 &copy; VIETTELHUE. ALL Rights Reserved.
+			<div class="span9">
+				<p>2014 &copy; VIETTELHUE. ALL Rights Reserved.
 			</div>
-			<div class="span2">	
-				<p>Thiết kế bởi <a href="qtmax.com">QTMax</a></p>
+			<div class="span3">	
+				<p>Phát triển bởi <a href="http://qtmax.com">QTMax</a></p>
 			</div>
 		</div>
 	</div>
