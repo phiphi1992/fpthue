@@ -88,7 +88,7 @@ class HomeController extends Controller
 		/*Slider*/
 		$criBanner = new CDbCriteria();
 		$criBanner->order = "id DESC";
-		$criBanner->limit = 3;
+		$criBanner->limit = 5;
 		$arrBanner = Slides::model()->findAll($criBanner);
 
 		$this->render("index", array(
@@ -104,5 +104,9 @@ class HomeController extends Controller
 			'arrAds'=>$arrAds,
 			'arrPic'=>$arrPic
 		));
+	}
+
+	public function actionError() {
+		$this->render("error");
 	}
 }

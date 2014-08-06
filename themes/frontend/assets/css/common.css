@@ -13,7 +13,7 @@
 	font-size: 18px;
 	margin-top: 0px;
 	margin-left: 10px;
-	font-size: 22px;
+	font-size: 20px;
 }
 .hotline {
 	background: url(../img/common/hotline.png) left center no-repeat;
@@ -38,4 +38,9 @@ h1, h2, h3, h4, h5 {
 }
 .error {
 	color: red;
+}
+.news .item {
+ border: 1px solid rgba(173, 172, 172, 0.368627);
+ padding:3px;
+ margin-bottom: 5px;
 }

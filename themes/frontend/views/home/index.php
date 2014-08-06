@@ -19,7 +19,7 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrInternet as $internet) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($internet['image'],260,160,0)?>" alt="" /></div>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-internet','alias'=>$internet['alias']));?>"><img src="<?php echo getImage($internet['image'],260,160,0)?>" alt="" /></a></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-internet','alias'=>$internet['alias']));?>"><strong><?php echo $internet['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$internet['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($internet['description'],20)?></i></p>
@@ -36,7 +36,7 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrOptical as $optical) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($optical['image'],260,160,0)?>" alt="" /></div>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$optical['alias']));?>"><img src="<?php echo getImage($optical['image'],260,160,0)?>" alt="" /></a></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$optical['alias']));?>"><strong><?php echo $optical['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$optical['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($optical['description'],20)?></i></p>
@@ -54,7 +54,7 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrTv as $tv) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($tv['image'],260,160,0)?>" alt="" /></div>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'truyen-hinh','alias'=>$tv['alias']));?>"><img src="<?php echo getImage($tv['image'],260,160,0)?>" alt="" /></a></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'truyen-hinh','alias'=>$tv['alias']));?>"><strong><?php echo $tv['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$tv['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($tv['description'],20)?></i></p>
@@ -66,11 +66,11 @@
 			<?php }?>
 
 			<!--Quảng cáo ngang-->
-			<div class="row-fluid">
+			<!-- <div class="row-fluid">
 				<div class="span12" style="text-align: center;">
 					<a href="#"><img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/common/quangcao_2.gif" alt="Quảng cáo"/></a>
 				</div>
-			</div>
+			</div> -->
 
 			<!--End quảng cáo ngang-->
 			<?php  if(!empty($arrCa)) {?>
@@ -80,7 +80,7 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrCa as $ca) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($ca['image'],260,160,0)?>" alt="" /></div>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'chu-ky-so','alias'=>$ca['alias']));?>"><img src="<?php echo getImage($ca['image'],260,160,0)?>" alt="" /></a></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'chu-ky-so','alias'=>$ca['alias']));?>"><strong><?php echo $ca['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$ca['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($ca['description'],20)?></i></p>
@@ -98,7 +98,7 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrSimCard as $simCard) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($simCard['image'],260,160,0)?>" alt="" /></div>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'sim-card','alias'=>$simCard['alias']));?>"><img src="<?php echo getImage($simCard['image'],260,160,0)?>" alt="" /></a></div>
 							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'sim-card','alias'=>$simCard['alias']));?>"><strong><?php echo $simCard['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$simCard['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($simCard['description'],20)?></i></p>
@@ -116,8 +116,8 @@
 					<ul class="thumbnails">
 						<?php foreach ($arrStore as $store) {?>
 						<li class="span4 thumbnail-style thumbnail-kenburn item">
-							<div class="overflow-hidden"><img src="<?php echo getImage($store['image'],260,160,0)?>" alt="" /></div>
-							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'dang-ky-cap-quang','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
+							<div class="overflow-hidden"><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'store','alias'=>$store['alias']));?>"><img src="<?php echo getImage($store['image'],260,160,0)?>" alt="" /></a></div>
+							<h5><a href="<?php echo PIUrl::createUrl('default/new/detail',array('category'=>'store','alias'=>$store['alias']));?>"><strong><?php echo $store['name']?></strong></a></h5>
 							<i class="icon-time"></i> <?php echo date('d/m/Y',$store['created']);?> | <i class="icon-user-md"></i> Admin
 							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
 						</li>
