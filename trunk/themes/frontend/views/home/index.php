@@ -127,12 +127,12 @@
 			</div>
 			<?php }?>
 			<?php if(!empty($arrLinks)) {?>
-			<div class="store">
+			<div class="links">
 				<div class="headline"><a href="javascript:;"><h3>Liên kết web</h3></a></div>
 				<div class="row-fluid">
 					<ul class="thumbnails">
 						<?php foreach ($arrLinks as $link) {?>
-						<div class="span2" style="float:left; margin-left: 0px; background-color: #E4E4E1; padding : 5px; margin: 1px 3px 1px 0px;">
+						<div class="span2 link">
 							<a href="<?php echo $link['url'];?>"><?php echo $link['name'];?></a>
 						</div>
 						<?php }?>
