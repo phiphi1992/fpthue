@@ -59,6 +59,12 @@
 		</a>
 	</li>
 	<?php endforeach;?>
+	<li <?php if(curCA('controller') == 'links' && curCA('action') == 'index') echo 'class="active"'?>>
+		<a href="<?php echo PIUrl::createUrl('/admin/links/index');?>">
+			<i class="icon-text-width"></i>
+			<span class="menu-text"> Liên kết web </span>
+		</a>
+	</li>
 	<li <?php if(curCA('controller') == 'support') echo 'class="active"'?>>
 		<a href="<?php echo PIUrl::createUrl('/admin/support');?>">
 			<i class="icon-edit"></i>

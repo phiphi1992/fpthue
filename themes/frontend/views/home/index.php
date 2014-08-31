@@ -68,7 +68,7 @@
 			<!--Quảng cáo ngang-->
 			<!-- <div class="row-fluid">
 				<div class="span12" style="text-align: center;">
-					<a href="#"><img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/common/quangcao_2.gif" alt="Quảng cáo"/></a>
+					<a href="#"><img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/common/banner_center.gif" alt="Quảng cáo"/></a>
 				</div>
 			</div> -->
 
@@ -122,6 +122,20 @@
 							<p><i><?php echo word_limiter($store['description'],20)?></i></p>
 						</li>
 					<?php }?>
+					</ul>
+				</div>
+			</div>
+			<?php }?>
+			<?php if(!empty($arrLinks)) {?>
+			<div class="store">
+				<div class="headline"><a href="javascript:;"><h3>Liên kết web</h3></a></div>
+				<div class="row-fluid">
+					<ul class="thumbnails">
+						<?php foreach ($arrLinks as $link) {?>
+						<div class="span2" style="float:left; margin-left: 0px; background-color: #E4E4E1; padding : 5px; margin: 1px 3px 1px 0px;">
+							<a href="<?php echo $link['url'];?>"><?php echo $link['name'];?></a>
+						</div>
+						<?php }?>
 					</ul>
 				</div>
 			</div>

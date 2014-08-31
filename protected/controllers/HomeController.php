@@ -90,6 +90,11 @@ class HomeController extends Controller
 		$criBanner->order = "id DESC";
 		$criBanner->limit = 5;
 		$arrBanner = Slides::model()->findAll($criBanner);
+	
+		/*Links web*/
+		$criLinks = new CDbCriteria();
+		$criLinks->order = "priority DESC";
+		$arrLinks = Links::model()->findAll($criLinks);
 
 		$this->render("index", array(
 			'arrBanner'=>$arrBanner,
@@ -102,7 +107,8 @@ class HomeController extends Controller
 			'arrNews'=>$arrNews,
 			'arrSupport'=> $arrSupport,
 			'arrAds'=>$arrAds,
-			'arrPic'=>$arrPic
+			'arrPic'=>$arrPic,
+			'arrLinks'=>$arrLinks
 		));
 	}
 

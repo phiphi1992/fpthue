@@ -109,6 +109,9 @@ class News extends PIActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'t.created DESC',
+			),
 		));
 	}
 
