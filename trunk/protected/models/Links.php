@@ -5,9 +5,7 @@
  *
  * The followings are the available columns in table 'links':
  * @property integer $id
- * @property string $name
- * @property string $url
- * @property integer $priority
+ * @property string $content
  * @property integer $created
  */
 class Links extends CActiveRecord
@@ -28,12 +26,11 @@ class Links extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, url', 'required'),
-			array('priority, created', 'numerical', 'integerOnly'=>true),
-			array('name, url', 'length', 'max'=>256),
+			array('id, content', 'required'),
+			array('id, created', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, url, priority, created', 'safe', 'on'=>'search'),
+			array('id, content, created', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,9 +52,7 @@ class Links extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Tên',
-			'url' => 'Link',
-			'priority' => 'Vị trí',
+			'content' => 'Nội dung',
 			'created' => 'Ngày tạo',
 		);
 	}
@@ -81,16 +76,11 @@ class Links extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('url',$this->url,true);
-		$criteria->compare('priority',$this->priority);
+		$criteria->compare('content',$this->content,true);
 		$criteria->compare('created',$this->created);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			'sort'=>array(
-				'defaultOrder'=>'priority DESC',
-			),
 		));
 	}
 
@@ -103,18 +93,5 @@ class Links extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	/**
-	 * Thí is function used get max priority
-	 */
-	public function getMaxPriority() {
-		$cri = new CDbCriteria();
-		$cri->order = 'priority DESC';
-		$link = $this->model()->find($cri);
-		if(!empty($link)) {
-			return $link['priority'];
-		}
-		return 0;
 	}
 }
