@@ -9,96 +9,52 @@
 					<i class="icon-angle-right arrow-icon"></i>
 				</span>
 			</li>
+			<li class="active"><?php echo translate('Liên kết web');?></li>
 		</ul>
 	</div>
+
 	<div class="page-content">
-		<?php $id = (isset($_GET['id'])) ? $_GET['id'] : null; ?>
+		<div class="page-header position-relative">
+			<h1>
+				<?php echo translate('Liên kết web');?>
+			</h1>
+		</div><!--/.page-header-->
 		<div class="row-fluid">
 			<div class="span12">
-			<a href="<?php echo PIUrl::createUrl('/admin/links/create/');?>" class="btn btn-primary">
-				<i class="icon-ok bigger-110"></i>
-				<?php echo translate('Thêm liên kết');?>
-			</a>
-			<form method="post">
 				<!--PAGE CONTENT BEGINS-->
-				<?php $this->widget('zii.widgets.grid.CGridView', array(
-					'id'=>'news-grid',
-					'dataProvider'=>$model->search($id),
-					'filter'=>$model,
-					'htmlOptions'=>array(),
-					'itemsCssClass'=>'table table-striped table-bordered table-hover',
-					'emptyText' => 'Không có kết quả hiển thị',
-					'selectableRows' => 2,
-					'summaryText' => 'Hiển thị {start} - {end} của {count} kết quả ',
-					'columns'=>array(	
-						array(
-							'id' => 'id',
-							'class' => 'CCheckBoxColumn',
-						),
-						array(
-							'header'=>'STT',
-							'value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize + ($row+1)',
-						),
-						'name',
-						'url',
-						'priority',
-						'created'=>array(
-							'name'=>'created',
-							'type'=>'raw',
-							'filter'=>false,
-							'value'=>'date(Yii::app()->params["date"],$data->created)',
-
-						),
-						array(
-							'header' => '<input type="button" name="deleteAll" class="deleteAll btn btn-mini btn-danger icon-trash bigger-120" value="Xóa" />',
- 							'class'=>'CButtonColumn',
-							'template' => '{update}{delete}',
-							'buttons'  => array(
-								'update' => array(
-									'options'=>array('class'=>'btn btn-mini btn-info icon-edit bigger-120','title'=>'Sửa bài viết' ),																							
-									'imageUrl' => false,
-									'label'=>false,
-								),
-								'delete' => array(
-									'label'=>false,
-									'options'=>array('class'=>'btn btn-mini btn-danger icon-trash bigger-120','title'=>'Xóa bài viết' ),
-									'imageUrl' => false,
-								),						
-							 ),
-							'deleteConfirmation'=>'Bạn có muốn xóa liên kết này không?',
-						),	
-					),
+				<?php $form = $this->beginWidget('CActiveForm', array(
+					'id'=>'system-form',
+					//'enableAjaxValidation'=>true,
+					'enableClientValidation'=>true,
+					'focus'=>array($model,'title'),
+					'htmlOptions'=>array('class'=>'form-horizontal', 'enctype'=>'multipart/form-data'),
 				)); ?>
-			</form>	
+				<div class="control-group">
+					<?php echo $form->labelEx($model,'content',array('class'=>'control-label')); ?>
+					<div class="controls">
+						<?php echo $form->textArea($model,'content',array('placeholder'=>'Nội dung', 'class'=>'ckeditor')); ?>
+						<?php echo $form->error($model,'content'); ?>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button id="submitForm" class="btn btn-primary" type="submit">
+						<i class="icon-ok bigger-110"></i>
+						<?php echo translate('Cập nhật');?>
+					</button>
+
+					&nbsp; &nbsp; &nbsp;
+					<button type="button" onclick="location.href='<?php echo PIUrl::createUrl('/admin');?>'" class="btn " >
+						<i class="icon-undo bigger-110"></i>
+						<?php echo translate('hủy');?>
+					</button>
+				</div>
+				<?php $this->endWidget(); ?>
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
-</div><!--/.main-content-->
-<style>
-.grid-view .filters input, .grid-view .filters select {
-    width: 92%;
-}
-.image img{
-	width:80px;
-	height:60px;
-}
-.btn-info{margin-right:3px;}
-input[type="checkbox"]{opacity:1;}
-.select-on-check-all{ margin-top:-7.3px !important; }
-</style>
 <script>
-	$("document").ready(function(){
-		$(".deleteAll").live('click', function(){
-			var arrIdNew = $("#news-grid").yiiGridView('getSelection');
-			if(arrIdNew != ""){
-				var answer = confirm ("Bạn có muốn xóa các liên kết được chọn không?");
-				if(answer){
-					var arrIdNew = $("#news-grid").yiiGridView('getSelection');
-					var url = '<?php echo PIUrl::createUrl("/admin/links/deleteAll/id");?>';
-					url+='/'+arrIdNew;
-					window.location.href = url;
-				}
-			}
-		});
-	})
+	$("#system-form").submit(function(){
+		$("#submitForm").attr("disabled", true);
+	});
 </script>
+</div><!--/.main-content-->

@@ -92,9 +92,7 @@ class HomeController extends Controller
 		$arrBanner = Slides::model()->findAll($criBanner);
 	
 		/*Links web*/
-		$criLinks = new CDbCriteria();
-		$criLinks->order = "priority DESC";
-		$arrLinks = Links::model()->findAll($criLinks);
+		$arrLink = Links::model()->find();
 
 		$this->render("index", array(
 			'arrBanner'=>$arrBanner,
@@ -108,7 +106,7 @@ class HomeController extends Controller
 			'arrSupport'=> $arrSupport,
 			'arrAds'=>$arrAds,
 			'arrPic'=>$arrPic,
-			'arrLinks'=>$arrLinks
+			'arrLink'=>$arrLink
 		));
 	}
 

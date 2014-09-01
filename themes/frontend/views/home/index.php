@@ -126,16 +126,12 @@
 				</div>
 			</div>
 			<?php }?>
-			<?php if(!empty($arrLinks)) {?>
+			<?php if(!empty($arrLink)) {?>
 			<div class="links">
 				<div class="headline"><a href="javascript:;"><h3>Liên kết web</h3></a></div>
 				<div class="row-fluid">
 					<ul class="thumbnails">
-						<?php foreach ($arrLinks as $link) {?>
-						<div class="span2 link">
-							<a href="<?php echo $link['url'];?>"><?php echo $link['name'];?></a>
-						</div>
-						<?php }?>
+						<?php echo $arrLink['content'];?>
 					</ul>
 				</div>
 			</div>
