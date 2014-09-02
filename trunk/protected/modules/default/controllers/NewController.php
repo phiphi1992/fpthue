@@ -1,7 +1,7 @@
 <?php
 class NewController extends Controller {
 
-	public $pageSize = 20;
+	public $pageSize = 30;
 	public function actionIndex($alias) {
 		/*Get news by alias*/
 		$category = CategoriesNews::model()->findByAttributes(array('alias'=>$alias));
