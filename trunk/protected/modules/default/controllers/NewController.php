@@ -22,30 +22,6 @@ class NewController extends Controller {
 		$pages->setPageSize($this->pageSize);
 		$pages->applyLimit($criteria);
 
-		//News
-		$criNew = new CDBCriteria;
-		$criNew->addCondition("category_news_id = 5");
-		$criNew->order = "id DESC";
-		$criNew->limit = 5;
-		$arrNews = News::model()->findAll($criNew);
-		
-		//Setting
-		$criSystem = new CDbCriteria();
-		$criSystem->order = "id DESC";
-		$arrSystem = System::model()->find($criSystem);
-		
-		//Support
-		$criSupport = new CDbCriteria();
-		$criSupport->order = "id DESC";
-		$arrSupport = Supports::model()->findAll($criSupport);
-
-		/*Pictures*/
-		$criPic = new CDbCriteria();
-		$criPic->addCondition("album_id = 2");
-		$criPic->order = "id DESC";
-		$criPic->limit = 10;
-		$arrPic = Images::model()->findAll($criPic);
-
 		/*Slider*/
 		$criBanner = new CDbCriteria();
 		$criBanner->order = "id DESC";
@@ -59,10 +35,6 @@ class NewController extends Controller {
 			'count'=>$count,
 			'pages'=>$pages,
 			'category'=>$category,
-			'arrNews'=>$arrNews,
-			'arrSystem'=>$arrSystem,
-			'arrSupport'=>$arrSupport,
-			'arrPic'=>$arrPic
 		));
 	}
 
@@ -85,36 +57,9 @@ class NewController extends Controller {
 		$criRelated->limit = 8;
 		$arrRelated = News::model()->findAll($criRelated);
 
-		//News
-		$criNew = new CDBCriteria;
-		$criNew->addCondition("category_news_id = 5");
-		$criNew->order = "id DESC";
-		$criNew->limit = 5;
-		$arrNews = News::model()->findAll($criNew);
-		
-		//Setting
-		$criSystem = new CDbCriteria();
-		$criSystem->order = "id DESC";
-		$arrSystem = System::model()->find($criSystem);
-
-		/*Pictures*/
-		$criPic = new CDbCriteria();
-		$criPic->addCondition("album_id = 2");
-		$criPic->order = "id DESC";
-		$criPic->limit = 10;
-		$arrPic = Images::model()->findAll($criPic);
-
-		//Support
-		$criSupport = new CDbCriteria();
-		$criSupport->order = "id DESC";
-		$arrSupport = Supports::model()->findAll($criSupport);
 		$this->render('detail',array(
 			'model'=>$model,
 			'arrRelated'=>$arrRelated,
-			'arrNews'=>$arrNews,
-			'arrSystem'=>$arrSystem,
-			'arrSupport'=>$arrSupport,
-			'arrPic'=>$arrPic
 		));
 	}
 }

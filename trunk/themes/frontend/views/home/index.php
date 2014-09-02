@@ -137,12 +137,7 @@
 			</div>
 			<?php }?>
 		</div>
-		<?php $this->renderPartial('//common/right',array(
-			'arrNews'=>$arrNews,
-			'arrSupport'=>$arrSupport,
-			'arrAds'=>$arrAds,
-			'arrPic'=>$arrPic
-		));?>
+		<?php $this->widget('application.components.widgetRight',array('dataSystem'=>$this->dataSystem));?>
 	</div>
 </div>
 <script type="text/javascript">
