@@ -45,10 +45,5 @@
 		</div>
 		<?php }?>
 	</div>
-	<?php $this->renderPartial('//common/right',array(
-		'arrNews'=>$arrNews,
-		'arrSystem'=>$arrSystem,
-		'arrSupport'=>$arrSupport,
-		'arrPic'=>$arrPic
-	));?>
+	<?php $this->widget('application.components.widgetRight',array('dataSystem'=>$this->dataSystem));?>
 </div>
